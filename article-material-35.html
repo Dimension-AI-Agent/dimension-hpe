@@ -1,0 +1,192 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="訊達結合 HPE 技術與服務，協助企業規劃整合方案。"><title>企業如何評估 AI Agent：從任務完成率、穩定性到執行成本｜訊達文章</title><link rel="stylesheet" href="style.css?v=20261109-library1"><script defer src="app.js"></script></head><body><a class="skip" href="#main">跳至主要內容</a><header class="site-header"><a class="dimension" href="index.html" aria-label="訊達電腦首頁"><img src="assets/plates/dimension-wordmark-transparent.svg" alt="Dimension 訊達電腦"></a><button class="menu" aria-expanded="false" aria-controls="navigation">選單</button><nav id="navigation" aria-label="主要導覽"><a href="applications.html">應用情境</a><a href="cases.html">訊達成功案例</a><a href="insights.html" aria-current="page">訊達文章</a><a class="contact-nav" href="contact.html">聯絡我們 <span>↗</span></a></nav><div class="header-hpe"><span>合作夥伴</span><img src="assets/plates/hpe-logo.png" alt="HPE"></div></header><main id="main"><div class="reading-wrap"><p class="breadcrumb"><a href="index.html">首頁</a> / <a href="insights.html">訊達文章</a> / 閱讀文章</p><article class="reading-article"><p class="article-category">企業 AI 與 Agent 實務 · 成效與成本評估</p><h1>企業如何評估 AI Agent：從任務完成率、穩定性到執行成本</h1><p class="reading-lede">Anthropic 說明 AI Agent 的評估方法，強調驗收應確認任務是否實際完成，並透過重複測試觀察結果的一致性。企業可結合程式檢查、模型評分與人工審查，追蹤任務成功率、延遲、錯誤率與每次任務成本，作為 PoC 驗收及上線後持續改善的依據。此素材適合說明企業如何建立可衡量的導入標準；若要進一步計算投資報酬，仍需補充人工處理基準、建置成本與業務收益。</p><div class="article-body"><p>Anthropic｜Demystifying evals for AI agents（已翻譯成中文）</p>
+<h1>揭開 AI Agent 評估（Evals）的神秘面紗</h1>
+<p>發布日期：2026 年 1 月 9 日</p>
+<p>AI Agent 的自主性、智慧與彈性讓它們非常有用，但也使評估變得更加困難。有效的 Agent 評估通常需要結合多種方法，才能對應系統本身的複雜程度。</p>
+<h2>Introduction｜引言</h2>
+<p>Evals 能讓團隊在問題影響使用者之前，就發現 Agent 的失敗模式與行為變化，避免只能在正式環境中被動除錯。</p>
+<h2>The structure of an evaluation｜評估的結構</h2>
+<p>Anthropic 將 Agent Eval 拆成幾個核心元素：</p>
+<ul>
+<li><strong>Task</strong>：單一測試案例</li>
+<li><strong>Trial</strong>：某個 Task 的一次實際執行</li>
+<li><strong>Grader</strong>：判斷 Agent 表現的評分機制</li>
+<li><strong>Transcript / Trace / Trajectory</strong>：完整執行紀錄</li>
+<li><strong>Outcome</strong>：執行結束後環境真正產生的結果</li>
+<li><strong>Evaluation Harness</strong>：負責執行與管理整套 Eval 的基礎設施</li>
+<li><strong>Agent Harness / Scaffold</strong>：讓模型能以 Agent 形式運作的系統</li>
+<li><strong>Evaluation Suite</strong>：針對特定能力建立的一組測試案例</li>
+</ul>
+<h2>Why build evaluations?｜為什麼要建立 Evals？</h2>
+<p>早期開發可以依靠人工測試、Dogfooding 與直覺，但 Agent 規模擴大後，缺乏 Evals 會讓團隊難以：</p>
+<ul>
+<li>判斷是真正 Regression 還是隨機波動</li>
+<li>在發布前大量測試情境</li>
+<li>衡量改進是否真的有效</li>
+<li>快速評估新模型是否適合升級</li>
+</ul>
+<h2>How to evaluate AI agents｜如何評估 AI Agent</h2>
+<h3>Types of graders｜Grader 類型</h3>
+<p>主要分成三類：</p>
+<ol>
+<li><p><strong>Code-based graders</strong></p>
+<ul>
+<li>快速、便宜、客觀、可重現</li>
+<li>適合測試明確且可程式化驗證的結果</li>
+</ul>
+</li>
+<li><p><strong>Model-based graders</strong></p>
+<ul>
+<li>使用 LLM 評估</li>
+<li>適合開放式、自然語言或主觀品質問題</li>
+<li>需要與人工評分進行校準</li>
+</ul>
+</li>
+<li><p><strong>Human graders</strong></p>
+<ul>
+<li>品質最高</li>
+<li>適合專家判斷與主觀問題</li>
+<li>但成本與時間較高</li>
+</ul>
+</li>
+</ol>
+<h3>Capability vs. Regression Evals</h3>
+<p><strong>Capability Eval</strong><br>檢驗「Agent 現在能做到多難的事情」。</p>
+<p><strong>Regression Eval</strong><br>檢驗「Agent 原本會做的事情，現在是否仍然可靠」。</p>
+<p>成熟的 Capability Eval 最後可以轉變成持續執行的 Regression Suite。</p>
+<h3>Evaluating coding agents｜Coding Agent</h3>
+<p>Coding Agent 適合大量使用確定性測試，例如：</p>
+<ul>
+<li>Unit Tests</li>
+<li>Static Analysis</li>
+<li>執行結果</li>
+<li>程式碼品質 Rubric</li>
+</ul>
+<h3>Evaluating conversational agents｜對話型 Agent</h3>
+<p>除了最終任務是否完成，也必須評估：</p>
+<ul>
+<li>對話品質</li>
+<li>是否正確使用工具</li>
+<li>是否完成目標</li>
+<li>對話輪數</li>
+<li>語氣與回覆品質</li>
+</ul>
+<p>有時還需要第二個 LLM 模擬使用者。</p>
+<h3>Evaluating research agents｜Research Agent</h3>
+<p>Research Agent 的品質較難用單一答案衡量，因此可以組合：</p>
+<ul>
+<li>Groundedness</li>
+<li>Coverage</li>
+<li>Source Quality</li>
+<li>Exact Match</li>
+<li>LLM Rubric</li>
+</ul>
+<p>並定期與領域專家的人工判斷校準。</p>
+<h3>Computer use agents｜Computer-use Agent</h3>
+<p>需要讓 Agent 真正在 GUI 或 Sandbox 環境中操作，再確認：</p>
+<ul>
+<li>UI 狀態</li>
+<li>檔案狀態</li>
+<li>資料庫狀態</li>
+<li>Application Configuration</li>
+<li>最終操作結果</li>
+</ul>
+<h3>Non-determinism｜非確定性</h3>
+<p>Agent 每次執行結果可能不同，因此單次 Pass / Fail 不一定能代表真實能力。</p>
+<p>常用：</p>
+<ul>
+<li><strong>pass@k</strong>：k 次嘗試中至少成功一次的機率</li>
+<li><strong>pass^k</strong>：k 次嘗試全部成功的機率</li>
+</ul>
+<p>前者偏向衡量「是否有能力找到解法」，後者偏向衡量「是否能穩定成功」。</p>
+<h2>Going from zero to one｜從零建立 Agent Eval</h2>
+<p>Anthropic 建議：</p>
+<h3>Step 0：越早開始越好</h3>
+<p>初期甚至只需要約 20–50 個來自真實失敗案例的 Task。</p>
+<h3>Step 1：從現有人工測試開始</h3>
+<p>將：</p>
+<ul>
+<li>Release 前人工檢查</li>
+<li>Bug</li>
+<li>Support Ticket</li>
+<li>使用者失敗案例</li>
+</ul>
+<p>轉成 Eval Tasks。</p>
+<h3>Step 2：建立明確 Task 與 Reference Solution</h3>
+<p>Task 不應存在模糊條件。</p>
+<p>理想情況下，不同領域專家應能獨立得出相同的 Pass / Fail 判斷。</p>
+<h3>Step 3：保持測試資料平衡</h3>
+<p>同時測試：</p>
+<ul>
+<li>某個行為「應該發生」的案例</li>
+<li>某個行為「不應該發生」的案例</li>
+</ul>
+<p>避免 Agent 為了提高 Eval 分數而過度觸發某種行為。</p>
+<h3>Step 4：建立穩定的 Eval Harness</h3>
+<p>每個 Trial 應盡量：</p>
+<ul>
+<li>從乾淨環境開始</li>
+<li>彼此隔離</li>
+<li>避免共享狀態</li>
+<li>接近 Production Agent 的實際環境</li>
+</ul>
+<h3>Step 5：設計合適的 Graders</h3>
+<p>原則：</p>
+<ul>
+<li>能用 Deterministic Grader 就優先使用</li>
+<li>必要時使用 LLM Grader</li>
+<li>人工評估作為校準</li>
+</ul>
+<p>應優先評估 Agent 最終完成了什麼，而不是強迫 Agent 按固定路徑完成任務。</p>
+<h3>Step 6：閱讀 Transcript</h3>
+<p>不能只看分數。</p>
+<p>需要閱讀 Agent 的執行軌跡，判斷失敗究竟來自：</p>
+<ul>
+<li>Agent</li>
+<li>Grader</li>
+<li>Task Specification</li>
+<li>Eval Harness</li>
+</ul>
+<h3>Step 7：注意 Eval Saturation</h3>
+<p>當 Capability Eval 接近 100%，它就無法再有效衡量模型進步。</p>
+<p>此時需要增加更困難的 Task。</p>
+<h3>Step 8：長期維護 Eval Suite</h3>
+<p>Eval Suite 應視為持續維護的工程資產，就像 Unit Tests 一樣。</p>
+<p>Anthropic 建議採用 <strong>Eval-driven Development</strong>：</p>
+<blockquote>
+<p>先用 Eval 定義預期能力，再逐步讓 Agent 達到要求。</p>
+</blockquote>
+<h2>Evals 與其他 Agent 評估方法</h2>
+<p>完整的 Agent 品質評估不應只依靠 Automated Evals，還應搭配：</p>
+<ul>
+<li>Automated Evals</li>
+<li>Production Monitoring</li>
+<li>A/B Testing</li>
+<li>User Feedback</li>
+<li>Manual Transcript Review</li>
+<li>Systematic Human Studies</li>
+</ul>
+<p>不同方法就像多層防護機制，各自補足其他方法無法發現的問題。</p>
+<h2>Conclusion｜結論</h2>
+<p>Agent Eval 的核心不是建立一個完美的 Benchmark，而是建立持續改進循環：</p>
+<p><strong>真實失敗 → Eval Task → 找出問題 → 改善 Agent → 防止 Regression</strong></p>
+<p>關鍵原則包括：</p>
+<ul>
+<li>儘早開始</li>
+<li>使用真實 Task</li>
+<li>明確定義成功條件</li>
+<li>結合多種 Grader</li>
+<li>維持足夠難度</li>
+<li>持續改善 Eval 的訊噪比</li>
+<li>實際閱讀 Agent Transcript</li>
+</ul>
+<h2>Appendix: Eval frameworks｜Eval 框架</h2>
+<p>文章另外介紹數種可使用的 Eval 工具：</p>
+<ul>
+<li><strong>Harbor</strong></li>
+<li><strong>Braintrust</strong></li>
+<li><strong>LangSmith</strong></li>
+<li><strong>Langfuse</strong></li>
+<li><strong>Arize Phoenix / AX</strong></li>
+</ul>
+<p>Anthropic 的重點是：框架本身並不是最重要的，真正決定 Eval 品質的是 <strong>Task 與 Grader 的設計品質</strong>。</p>
+<section class="article-references"><h2>參考資料</h2><ul><li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" rel="noopener noreferrer">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</a></li></ul></section></div></article><p><a class="action outline" href="insights.html">← 返回訊達文章</a></p></div></main><section class="hpe-disclaimer" aria-labelledby="hpe-disclaimer-heading"><div class="hpe-disclaimer-inner"><h2 id="hpe-disclaimer-heading">HPE 產品資訊聲明</h2><p>The information contained herein is subject to change without notice.</p><p>The only warranties for Hewlett Packard Enterprise products and services are set forth in the express warranty statements accompanying such products and services. Nothing herein should be construed as constituting an additional warranty. Hewlett Packard Enterprise shall not be liable for technical or editorial errors or omissions contained herein.</p><p class="hpe-disclaimer-translation">以上資訊如有變更，恕不另行通知。HPE 產品與服務的保固以隨附的明示保固聲明為準；本網站內容不構成額外保固。HPE 不對本網站所含的技術或編輯錯誤或遺漏負責。</p></div></section><footer class="footer"><div><span>訊達電腦 Dimension Computer Technology</span><br><span>企業 AI 與基礎架構方案</span></div></footer></body></html>

@@ -1,0 +1,98 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="訊達結合 HPE 技術與服務，協助企業規劃整合方案。"><title>從 Token 到商業價值：地端與雲端生成式 AI 的成本效益追蹤｜訊達文章</title><link rel="stylesheet" href="style.css?v=20261109-library1"><script defer src="app.js"></script></head><body><a class="skip" href="#main">跳至主要內容</a><header class="site-header"><a class="dimension" href="index.html" aria-label="訊達電腦首頁"><img src="assets/plates/dimension-wordmark-transparent.svg" alt="Dimension 訊達電腦"></a><button class="menu" aria-expanded="false" aria-controls="navigation">選單</button><nav id="navigation" aria-label="主要導覽"><a href="applications.html">應用情境</a><a href="cases.html">訊達成功案例</a><a href="insights.html" aria-current="page">訊達文章</a><a class="contact-nav" href="contact.html">聯絡我們 <span>↗</span></a></nav><div class="header-hpe"><span>合作夥伴</span><img src="assets/plates/hpe-logo.png" alt="HPE"></div></header><main id="main"><div class="reading-wrap"><p class="breadcrumb"><a href="index.html">首頁</a> / <a href="insights.html">訊達文章</a> / 閱讀文章</p><article class="reading-article"><p class="article-category">企業 AI 與 Agent 實務 · 成效與成本評估</p><h1>從 Token 到商業價值：地端與雲端生成式 AI 的成本效益追蹤</h1><p class="reading-lede">生成式 AI 導入企業後，最常見的問題之一是：「到底值不值得？」
+
+很多企業在評估 AI 成本時，首先看到的是模型 API 的 Token 價格，或地端 GPU 伺服器的採購金額。然而，這兩種數字其實都無法完整代表生成式 AI 的真正成本。
+
+地端環境除了初期硬體建置外，還存在電力、設備折舊、人力維運、資安管理、模型更新、系統升級與驗證測試等長期支出；另一方面，使用雲端 AI 平台或模型 API，除了 Token 費用，也可能涉及使用者授權、儲存、網路傳輸、API 呼叫、工具使用與其他附加服務費用。
+
+因此，若企業希望真正了解生成式 AI 是否帶來效益，就不能只比較「GPU 買多少錢」或「一百萬 Token 多少錢」，而必須建立一套涵蓋地端、雲端平台與雲端 API 的全生命週期成本與效益追蹤機制。</p><div class="article-body"><h3><strong>一、AI成本不能只看 Token</strong></h3>
+<p>Token 是目前生成式 AI 最常見的計價單位，但 Token 並不等於真正的成本，更不代表商業價值。</p>
+<p>舉例來說：<br>自建 Open-Source LLM 與 雲端Closed-Source LLM的差別：</p>
+<p>雲端閉源模型擁有最前沿的技術及訓練資料，輸出的Token經過精準的訓練，達到高效利用資源。</p>
+<p>開源模型仰賴社群或是開源的資料及訓練，輸出的Token往往不比雲端閉源模型來的精準及高效。</p>
+<p>單純的對輸出Token來做比較是不精準的，應該要以誰能夠以更少的Token完成任務為前提思考。</p>
+<p>雲端閉源模型API的計費方式：</p>
+<p>以OpenAI的GPT-6 Astra來說</p>
+<p>輸入：100萬Tokens/10美金</p>
+<p>輸出：100萬Tokens/50美金</p>
+<p>雲端開源模型API的計費方式：</p>
+<p>以GLM的GLM 5.3 Flash來說</p>
+<p>輸入：100萬Tokens/0.02625美金</p>
+<p>輸出：100萬Tokens/0.9美金</p>
+<p>以及</p>
+<p>以DeepSeek的DeepSeek v4 Flash來說</p>
+<p>輸入：100萬Tokens/0.015美金</p>
+<p>輸出：100萬Tokens/0.75美金</p>
+<p>接下來，我們設定兩個條件：</p>
+<p>假設有個任務要輸入10萬Tokens 並讓模型輸出並完成任務</p>
+<p>1.GPT-6 Astra 使用了1萬Tokens就完成任務：10萬輸入＋1萬輸出：1.5美金</p>
+<p>2.GLM 5.3 Flash 使用了3萬Tokens：10萬輸入＋3萬輸出：0.029625美金</p>
+<p>3.DeepSeek v4 Flash 使用了2萬Tokens：10萬輸入＋2萬輸出：0.0165美金</p>
+<p>在都能正確完成的情況下</p>
+<p>DeepSeek使用了最少的金額，來完成了任務</p>
+<p>但會衍生到第二個議題</p>
+<p>當閉源模型能夠輸出更少的Token就完成任務，是不是花費的金額更少？</p>
+<p>答案是：不全然，要看任務性質去選擇。</p>
+<h3><strong>二、兩種 AI 使用模式</strong></h3>
+<p>第一種是地端 AI。</p>
+<p>企業自行建置 GPU Server、模型推論服務、儲存、監控與權限管理系統。其優勢是資料掌握度高、模型與系統彈性大，而且當使用量提高時，平均單位成本可能下降。</p>
+<p>但相對而言，企業也必須承擔硬體採購、維護、資安、更新與技術人員成本。</p>
+<p>第三種則是雲端模型 API。</p>
+<p>API 模式最大的特色是按量計費。</p>
+<p>企業不需要先購買大量硬體，而是根據 Token、Request 或其他服務使用量付費。</p>
+<p>對於剛開始導入 AI、使用量不穩定，或者偶爾才需要大型模型的企業而言，API 往往具有很高的彈性。</p>
+<h3><strong>三、建立 AI 成本歸屬</strong></h3>
+<p>最重要的一件事情是知道錢花在哪裡？</p>
+<p>因此，每一次 AI Request 都應該帶有足夠的識別資訊</p>
+<p>例如：客服部門的使用者 A，在客訴回覆流程中，使用 Qwen 模型完成了一次回覆任務，共消耗 3,000 Token、6.2 GPU Seconds，總處理時間為 8 秒。</p>
+<p>最終就可以回答以前很難回答的問題<br>例如：</p>
+<p>「客服部每個月在生成式 AI 上花多少錢？」</p>
+<p>「文件摘要功能到底使用哪個模型最划算？」</p>
+<p>「哪個部門產生最多 AI 成本？」</p>
+<p>「哪一類任務正在大量消耗大型模型？」</p>
+<p>若要比較地端與雲端，一定要建立共同的比較基準。</p>
+<p>像是Cost per Task</p>
+<p>AI 完成一次推論，不代表任務真的成功。</p>
+<p>人工檢核時，認為品質不好，重新生成回答，直到人工檢核通過。</p>
+<p>通過前的回答，無法通過人工檢核時，就會增加成本但並沒有提高效率。</p>
+<h3><strong>五、AI 的價值不能只用使用量衡量</strong></h3>
+<p>某個部門每個月呼叫 AI 十萬次，看起來使用率非常高，但如果實際沒有節省任何時間，也沒有改善品質，那麼大量使用反而可能代表大量支出。</p>
+<p>因此，AI 效益必須與實際業務結果連結。</p>
+<p>包括：</p>
+<p>節省人工工時、縮短流程時間、提升任務完成量、降低錯誤率、降低外部委外成本、減少重複作業、提高服務容量，以及增加營收。</p>
+<p>例如客服人員原本處理需要 十分鐘。</p>
+<p>導入 AI 後，AI 雖然可以在二十秒內產生草稿，但客服人員仍需要四分鐘進行確認與修改。</p>
+<p>真正節省的時間不是九分四十秒，而是：</p>
+<p>10 - 4 = 6分鐘</p>
+<p>那如果有1000個Request</p>
+<p>就節省了 <strong>6分鐘*1000 = 6000分鐘</strong></p>
+<p>導入AI前的人力成本是200元/每小時</p>
+<p>1000個Request / 10分鐘 =每分鐘100個Request</p>
+<p> 一小時能處理6000個Request，花費200元</p>
+<p>月成本：200<em>8小時</em>22天 = 35200元</p>
+<p>導入AI後</p>
+<p>1000個Request / 4分鐘 =每分鐘250個Request</p>
+<p>一小時能處理增加到15000個Request，花費200元</p>
+<p>加上AI的成本<br>假設系統月成本 10000元</p>
+<p>用1/3的人力費用，但獲得2倍以上的效率成長</p>
+<h3><strong>六、Break-even Point 是地端與雲端決策的重要指標</strong></h3>
+<p>地端 AI 通常具有較高的固定成本，而雲端 API 則具有較高的變動成本。</p>
+<p>因此兩者之間通常存在一個損益平衡點。</p>
+<p>假設每月約五萬個任務左右時，兩者達到成本交叉點。</p>
+<p>低於這個使用量時，API 可能具有較高的經濟彈性；當工作量持續成長時，地端系統的平均單位成本則可能逐漸下降。</p>
+<p>因此企業不應只問「地端是否比較便宜」，而應該持續追蹤平衡點。</p>
+<h3><strong>七、混合架構可能比單純二選一更合理</strong></h3>
+<p>在實際企業環境中，最後的答案往往不是完全地端，也不是全部上雲。</p>
+<p>更常見的情況可能是 Hybrid AI。</p>
+<p>例如：</p>
+<p>一般文件摘要由地端小型模型處理；</p>
+<p>包含敏感資訊的內容由地端大型模型處理；</p>
+<p>需要高階推理能力的任務送往雲端大型模型；</p>
+<p>而尖峰時段則利用雲端 API 進行 Overflow。</p>
+<p>如此一來，企業可以同時利用地端環境的資料控制能力，以及雲端服務的彈性與大型模型能力。</p>
+<p>甚至可以建立 AI Router，根據任務條件自動決定模型。</p>
+<h3><strong>八、最終目標：從「用了多少 AI」轉向「AI 創造多少價值」</strong></h3>
+<p>生成式 AI 的真正成本，並不存在於單一 Token、GPU 或月費之中。</p>
+<p>真正需要衡量的是整個生命週期。</p>
+<p>從採購設備、建立平台、部署模型，到日常推論、系統維護、資安管理、模型升級與品質驗證，每一個階段都會產生成本。</p>
+<p>同樣地，AI 的價值也不能只透過使用次數或 Token 數量來衡量。</p>
+<section class="article-attachments"><h2>相關圖文與影音</h2><figure><img loading="lazy" src="assets/materials/48/a301b1ced2a35ed0a516-1.png" alt="從 Token 到商業價值：地端與雲端生成式 AI 的成本效益追蹤.png"><figcaption>從 Token 到商業價值：地端與雲端生成式 AI 的成本效益追蹤.png</figcaption></figure></section></div></article><p><a class="action outline" href="insights.html">← 返回訊達文章</a></p></div></main><section class="hpe-disclaimer" aria-labelledby="hpe-disclaimer-heading"><div class="hpe-disclaimer-inner"><h2 id="hpe-disclaimer-heading">HPE 產品資訊聲明</h2><p>The information contained herein is subject to change without notice.</p><p>The only warranties for Hewlett Packard Enterprise products and services are set forth in the express warranty statements accompanying such products and services. Nothing herein should be construed as constituting an additional warranty. Hewlett Packard Enterprise shall not be liable for technical or editorial errors or omissions contained herein.</p><p class="hpe-disclaimer-translation">以上資訊如有變更，恕不另行通知。HPE 產品與服務的保固以隨附的明示保固聲明為準；本網站內容不構成額外保固。HPE 不對本網站所含的技術或編輯錯誤或遺漏負責。</p></div></section><footer class="footer"><div><span>訊達電腦 Dimension Computer Technology</span><br><span>企業 AI 與基礎架構方案</span></div></footer></body></html>
