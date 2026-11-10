@@ -15,84 +15,69 @@ videoChoices.forEach(button => button.addEventListener('click', () => {
   });
 }));
 
-// Article library filters and shareable links
+
+// The published library is the source of truth for both cards and categories.
 const library = document.querySelector('#article-library');
-if (library) {
+if (library) initLibrary();
+async function initLibrary() {
+  const loading = document.querySelector('#library-loading');
+  const error = document.querySelector('#library-error');
+  try {
+    const {site, items, topics} = await loadPublicContent();
+    const categories = document.querySelector('#dynamic-categories');
+    const all = `<button type="button" class="library-all" data-filter="all" aria-pressed="true"><span>全部文章</span><span>${items.length}</span></button>`;
+    const groups = site.tracks.map(track => {
+      const groupItems = items.filter(item => topics.get(item.topicId)?.trackId === track.id);
+      if (!groupItems.length) return '';
+      const children = (track.topics || []).map(topic => {
+        const count = groupItems.filter(item => item.topicId === topic.id).length;
+        return count ? `<button type="button" data-filter="topic" data-value="${escapeText(topic.id)}" data-label="${escapeText(topic.title)}"><span>${escapeText(topic.title)}</span><span>${count}</span></button>` : '';
+      }).join('');
+      return `<details class="category-group" data-group="${escapeText(track.id)}"><summary><span>${escapeText(track.title)}</span><span class="category-count">${groupItems.length}</span><span class="category-icon" aria-hidden="true"></span></summary><div class="category-children"><button type="button" data-filter="track" data-value="${escapeText(track.id)}" data-label="${escapeText(track.title)}"><span>全部${escapeText(track.title)}</span><span>${groupItems.length}</span></button>${children}</div></details>`;
+    }).join('');
+    const otherCount = items.filter(item => !topics.has(item.topicId)).length;
+    categories.innerHTML = all + groups + (otherCount ? `<button type="button" data-filter="track" data-value="__other" data-label="其他"><span>其他</span><span>${otherCount}</span></button>` : '');
+    library.innerHTML = items.map(item => {
+      const topic = topics.get(item.topicId) || {trackId:'__other', trackTitle:'其他', title:'其他'};
+      const tags = Array.isArray(item.tags) ? item.tags.filter(t => typeof t === 'string') : [];
+      const searchable = [item.title, item.summary, item.body, topic.title, topic.trackTitle, ...tags].join(' ').toLocaleLowerCase();
+      const href = articleHref(item.id);
+      return `<article id="${escapeText(item.id)}" data-track="${escapeText(topic.trackId)}" data-topic="${escapeText(item.topicId || '')}" data-tags="${escapeText(JSON.stringify(tags))}" data-search="${escapeText(searchable)}"><div class="article-category"><a href="insights.html?track=${encodeURIComponent(topic.trackId)}#articles" data-track-link="${escapeText(topic.trackId)}">${escapeText(topic.trackTitle)}</a><span aria-hidden="true"> / </span><a href="insights.html?topic=${encodeURIComponent(item.topicId || '')}#articles" data-topic-link="${escapeText(item.topicId || '')}">${escapeText(topic.title)}</a></div><h3><a class="article-title-link" href="${href}">${escapeText(item.title)}</a></h3><p class="article-summary">${escapeText(item.summary || '')}</p><a class="read-link" href="${href}">閱讀文章 <span aria-hidden="true">→</span></a><div class="article-tags" aria-label="文章標籤">${tags.map(tag => `<a class="topic-tag" href="insights.html?tag=${encodeURIComponent(tag)}#articles" data-tag="${escapeText(tag)}">${escapeText(tag)}</a>`).join('')}</div></article>`;
+    }).join('');
+    loading.hidden = true;
+    setupLibrary();
+  } catch {
+    loading.hidden = true; error.hidden = false;
+    document.querySelector('#article-count').textContent = '';
+  }
+}
+function setupLibrary() {
   const cards = [...library.querySelectorAll('article')];
-  const search = document.querySelector('#article-search');
-  const count = document.querySelector('#article-count');
-  const heading = document.querySelector('#library-title');
-  const active = document.querySelector('#active-filter');
-  const empty = document.querySelector('#article-empty');
+  const search = document.querySelector('#article-search'), count = document.querySelector('#article-count'), heading = document.querySelector('#library-title'), active = document.querySelector('#active-filter'), empty = document.querySelector('#article-empty');
   const buttons = [...document.querySelectorAll('[data-filter]')];
-  const initial = new URLSearchParams(location.search);
-  let filter = initial.get('tag') ? 'tag' : initial.get('topic') ? 'topic' : initial.get('track') ? 'track' : 'all';
-  let value = initial.get(filter) || '';
-  search.value = initial.get('q') || '';
+  const params = new URLSearchParams(location.search);
+  let filter = params.get('tag') ? 'tag' : params.get('topic') ? 'topic' : params.get('track') ? 'track' : 'all';
+  let value = params.get(filter) || ''; search.value = params.get('q') || '';
   const normalized = text => text.trim().toLocaleLowerCase();
-  function labelFor() {
-    if (filter === 'all') return '全部文章';
-    if (filter === 'tag') return `標籤：${value}`;
-    return buttons.find(b => b.dataset.filter === filter && b.dataset.value === value)?.dataset.label || '全部文章';
-  }
-  function render(syncUrl = true) {
-    const words = normalized(search.value).split(/\s+/).filter(Boolean);
-    let shown = 0;
+  function render(sync = true) {
+    const words = normalized(search.value).split(/\s+/).filter(Boolean); let shown = 0;
     cards.forEach(card => {
-      const categoryMatches = filter === 'all' || (filter === 'track' && card.dataset.track === value) || (filter === 'topic' && card.dataset.topic === value) || (filter === 'tag' && JSON.parse(card.dataset.tags).some(t => normalized(t) === normalized(value)));
-      const visible = categoryMatches && words.every(word => card.dataset.search.includes(word));
-      card.hidden = !visible;
-      if (visible) shown++;
+      const category = filter === 'all' || (filter === 'track' && card.dataset.track === value) || (filter === 'topic' && card.dataset.topic === value) || (filter === 'tag' && JSON.parse(card.dataset.tags).some(t => normalized(t) === normalized(value)));
+      card.hidden = !(category && words.every(word => card.dataset.search.includes(word))); if (!card.hidden) shown++;
     });
-    const label = labelFor();
-    heading.textContent = label;
-    count.textContent = `${shown} 篇文章`;
-    empty.hidden = shown !== 0;
-    const term = search.value.trim();
-    active.textContent = term ? `搜尋：${term}` : '';
-    active.hidden = !term;
-    buttons.forEach(button => {
-      const selected = button.dataset.filter === filter && (filter === 'all' || button.dataset.value === value);
-      button.setAttribute('aria-pressed', String(selected));
-    });
-    const selectedCard = cards.find(c => (filter === 'track' && c.dataset.track === value) || (filter === 'topic' && c.dataset.topic === value));
-    if (selectedCard) {
-      const group = [...document.querySelectorAll('.category-group')].find(g => g.dataset.group === selectedCard.dataset.track);
-      if (group) group.open = true;
-    }
-    if (syncUrl) {
-      const params = new URLSearchParams();
-      if (filter !== 'all') params.set(filter, value);
-      if (term) params.set('q', term);
-      const query = params.toString();
-      history.replaceState(null, '', location.pathname + (query ? '?' + query : '') + location.hash);
-    }
+    heading.textContent = filter === 'all' ? '全部文章' : filter === 'tag' ? `標籤：${value}` : buttons.find(b => b.dataset.filter === filter && b.dataset.value === value)?.dataset.label || '全部文章';
+    count.textContent = `${shown} 篇文章`; empty.hidden = shown !== 0;
+    active.textContent = search.value.trim() ? `搜尋：${search.value.trim()}` : ''; active.hidden = !search.value.trim();
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === filter && (filter === 'all' || button.dataset.value === value))));
+    const selected = cards.find(c => (filter === 'track' && c.dataset.track === value) || (filter === 'topic' && c.dataset.topic === value));
+    const group = selected && [...document.querySelectorAll('.category-group')].find(g => g.dataset.group === selected.dataset.track); if (group) group.open = true;
+    if (sync) { const next = new URLSearchParams(); if (filter !== 'all') next.set(filter,value); if (search.value.trim()) next.set('q',search.value.trim()); history.replaceState(null,'',location.pathname+(next.size?'?'+next:'')+location.hash); }
   }
-  buttons.forEach(button => button.addEventListener('click', () => {
-    filter = button.dataset.filter;
-    value = button.dataset.value || '';
-    search.value = '';
-    render();
-  }));
-  library.addEventListener('click', event => {
-    const link = event.target.closest('[data-tag], [data-topic-link], [data-track-link]');
-    if (!link) return;
-    event.preventDefault();
-    filter = link.dataset.tag ? 'tag' : link.dataset.topicLink ? 'topic' : 'track';
-    value = link.dataset.tag || link.dataset.topicLink || link.dataset.trackLink;
-    search.value = '';
-    render();
-    document.querySelector('#articles').scrollIntoView({block:'start'});
-  });
-  search.addEventListener('input', () => render());
-  document.querySelector('#article-search-form').addEventListener('submit', event => {event.preventDefault();render();});
-  document.querySelector('#clear-empty').addEventListener('click', () => {filter='all';value='';search.value='';render();});
-  window.addEventListener('popstate', () => {
-    const params = new URLSearchParams(location.search);
-    filter = params.get('tag') ? 'tag' : params.get('topic') ? 'topic' : params.get('track') ? 'track' : 'all';
-    value = params.get(filter) || '';
-    search.value = params.get('q') || '';
-    render(false);
-  });
+  buttons.forEach(button => button.addEventListener('click', () => {filter=button.dataset.filter; value=button.dataset.value||''; search.value=''; render();}));
+  library.addEventListener('click', e => { const link=e.target.closest('[data-tag], [data-topic-link], [data-track-link]'); if (!link) return; e.preventDefault(); filter=link.dataset.tag?'tag':link.dataset.topicLink?'topic':'track'; value=link.dataset.tag||link.dataset.topicLink||link.dataset.trackLink; search.value=''; render(); document.querySelector('#articles').scrollIntoView({block:'start'}); });
+  search.addEventListener('input',()=>render());
+  document.querySelector('#article-search-form').addEventListener('submit',e=>{e.preventDefault();render();});
+  document.querySelector('#clear-empty').addEventListener('click',()=>{filter='all';value='';search.value='';render();});
+  window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);filter=p.get('tag')?'tag':p.get('topic')?'topic':p.get('track')?'track':'all';value=p.get(filter)||'';search.value=p.get('q')||'';render(false);});
   render(false);
 }
