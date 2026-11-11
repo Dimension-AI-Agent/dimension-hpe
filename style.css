@@ -235,3 +235,5 @@
     padding-left: 12px;
   }
 }
+
+.service-intro{max-width:70ch;padding:12px 0 18px}.service-intro h2{font-size:clamp(26px,2.4vw,34px)}.service-intro p{color:#4b5850;line-height:1.8}.service-page .scenario,.service-intro~.scenario{grid-template-columns:1fr;padding:25px 0}.service-intro~.scenario h2{font-size:24px}.article-list article h3{font-size:20px;line-height:1.5}.article-list article p{color:#4b5850;line-height:1.7}
