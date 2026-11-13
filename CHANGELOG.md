@@ -10,6 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
+| 2026-11-13 | [連結、聯絡識別與文章影片](#release-20261113-ui) | 全站移除箭頭、聯絡列只留 Logo、影片固定尺寸 | [PR #7](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/7) |
 | 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | [PR #6](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/6) |
 | 2026-11-13 | [C 版全站設計與案例影片](#release-20261113-c) | 影片優先首頁、統一介面、8 支案例影片及操作改善 | [PR #4](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/4) |
 | 2026-11-11 | [AI 導入指南](#release-20261111-guide) | 四階段指南、HPE 與訊達各四個說明頁 | [PR #3](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/3) |
@@ -19,6 +20,21 @@
 | 2026-11-09 | [應用情境與文章庫](#release-20261109-content) | 移除合作方案入口、整理案例、站內閱讀 | [9417559](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/941755902ec17189453340ea0cdebee5699fcb1e) |
 | 2026-11-09 | [網站發布與網址更新](#release-20261109-publish) | 發布驗收網站、更新網址與專案介紹 | [6294b8e](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/6294b8e) |
 | 2026-11-04 | [初版預覽與行動版](#release-20261104-preview) | 建立初版、改善手機導覽、加入首頁方案與文章入口 | [8670b8c](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/8670b8c) |
+
+<a id="release-20261113-ui"></a>
+
+## 2026-11-13｜連結、聯絡識別與文章影片
+
+以最新 `c3a5168` 為基礎，套用已確認的 Demo 調整；完整保留 PR #6 的指南角色標題、「參考文章」、字級與閱讀寬度。
+
+- 移除首頁、主導覽、服務、案例、文章、指南及角色頁的裝飾連結箭頭，包含動態產生的閱讀與附件入口。保留文字、按鈕、焦點與原生影片操作。
+- 聯絡頁的訊達與 HPE 網站列只顯示既有 Logo，刪除重複名稱與網址；圖片保留可讀品牌名稱。HPE 標誌由此頁頁首移至 HPE 列，維持每頁一個。
+- 文章內圖片、影片下方不再顯示重複的「開啟附件：檔名」連結；文件下載入口仍保留。
+- 文章影片在播放前就預留與圖片同寬的 16:9 容器，完整呈現原片；原生控制與全螢幕保留，播放失敗才顯示備援入口。
+- Demo 實測：桌機播放器約 788 × 443px、手機約 319 × 179px，播放前後尺寸相同，下方內容位移小於 0.001px；已實際播放食品及資料湖案例。
+- `guide-typography.css` 與最新 main 逐位元組一致，既有文章內容來源、電話及中英文 HPE 聲明保留。
+
+修改與部署紀錄：[PR #7](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/7)。正式站部署及播放驗證結果記錄於該 PR。
 
 <a id="release-20261113-guide"></a>
 
