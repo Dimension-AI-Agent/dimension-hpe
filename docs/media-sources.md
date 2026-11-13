@@ -1,6 +1,6 @@
 # 媒體來源與使用方式
 
-首頁兩支影片沿用本儲存庫的 [網站影片素材 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-09)。封面為原片未裁切畫面，不新增 HPE 創意素材。
+首頁原有兩支影片沿用本儲存庫的 [網站影片素材 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-09)，封面為原片未裁切畫面。2026-11-13 新增的訊達 × HPE 合作影片儲存於[獨立 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-13)，使用網站製作的文字封面。
 
 成功案例影片即時取自 [既有公開內容資料](https://dimension-ai-agent.github.io/ai-marketing-website-public/data/materials.json) 中已核准案例的影片附件。2026-11-13 接上 material-53 與 material-60 至 material-66；每張封面的原始影片網址與擷取方式記錄在 [provenance.json](../assets/case-previews/provenance.json)。原影片不重複上傳至本儲存庫。
 
