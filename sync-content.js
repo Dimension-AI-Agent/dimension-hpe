@@ -10,7 +10,9 @@ async function loadPublicContent() {
   if (!Array.isArray(materials) || !Array.isArray(site.tracks)) throw new Error('資料格式不正確');
   const topics = new Map();
   site.tracks.forEach(track => (track.topics || []).forEach(topic => topics.set(topic.id, {id: topic.id, title: topic.title, trackId: track.id, trackTitle: track.title})));
-  return {site, items: materials.filter(item => item.status === '已核准' && typeof item.id === 'string' && typeof item.title === 'string'), topics};
+  const brandText = value => typeof value === 'string' ? value.replace(/HPE\s+GreenLake/g, 'GreenLake') : value;
+  const items = materials.filter(item => item.status === '已核准' && typeof item.id === 'string' && typeof item.title === 'string').map(item => ({...item,title:brandText(item.title),summary:brandText(item.summary),body:brandText(item.body),tags:Array.isArray(item.tags)?item.tags.map(brandText):item.tags}));
+  return {site, items, topics};
 }
 function articleHref(id) { return `article.html?id=${encodeURIComponent(id)}`; }
 function publicUrl(value) {
