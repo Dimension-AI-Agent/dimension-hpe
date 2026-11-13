@@ -10,7 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
-| 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | 本次更新 |
+| 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | [PR #6](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/6) |
 | 2026-11-13 | [C 版全站設計與案例影片](#release-20261113-c) | 影片優先首頁、統一介面、8 支案例影片及操作改善 | [PR #4](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/4) |
 | 2026-11-11 | [AI 導入指南](#release-20261111-guide) | 四階段指南、HPE 與訊達各四個說明頁 | [PR #3](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/3) |
 | 2026-11-11 | [服務與案例架構調整](#release-20261111-services) | 三項服務說明、集中案例、公開內容同步 | [PR #2](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/2) |
