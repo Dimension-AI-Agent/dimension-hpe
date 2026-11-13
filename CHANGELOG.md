@@ -10,6 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
+| 2026-11-13 | [首頁新增訊達 × HPE 影片](#release-20261113-partnership-video) | 新增影片、文字封面並調整首頁影片排序與名稱 | [影片 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-13) |
 | 2026-11-13 | [連結、聯絡識別與文章影片](#release-20261113-ui) | 全站移除箭頭、聯絡列只留 Logo、影片固定尺寸 | [PR #7](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/7) |
 | 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | [PR #6](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/6) |
 | 2026-11-13 | [C 版全站設計與案例影片](#release-20261113-c) | 影片優先首頁、統一介面、8 支案例影片及操作改善 | [PR #4](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/4) |
@@ -20,6 +21,14 @@
 | 2026-11-09 | [應用情境與文章庫](#release-20261109-content) | 移除合作方案入口、整理案例、站內閱讀 | [9417559](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/941755902ec17189453340ea0cdebee5699fcb1e) |
 | 2026-11-09 | [網站發布與網址更新](#release-20261109-publish) | 發布驗收網站、更新網址與專案介紹 | [6294b8e](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/6294b8e) |
 | 2026-11-04 | [初版預覽與行動版](#release-20261104-preview) | 建立初版、改善手機導覽、加入首頁方案與文章入口 | [8670b8c](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/8670b8c) |
+
+<a id="release-20261113-partnership-video"></a>
+
+## 2026-11-13｜首頁新增訊達 × HPE 影片
+
+- 依確認的 Demo 新增訊達 × HPE 影片，設為首頁預設與影片選單第一項，並以文字封面呈現播放前畫面。
+- 其餘選項依序為「HPE 產品介紹」與「訊達電腦簡介」；保留手動播放及切換時暫停上一支。
+- 影片儲存於 [網站影片 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-13)。
 
 <a id="release-20261113-ui"></a>
 

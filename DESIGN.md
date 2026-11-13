@@ -196,9 +196,9 @@ components:
 
 ### Video selector
 
-桌面為影片右側的文字按鈕列，已選按鈕為淡紅底深紅字，`aria-pressed` 與隱藏面板同步。HPE 產品介紹為預設第一支，訊達 × HPE 簡介為第二支。兩支均為既有 Release 原始 MP4，使用原生 controls、playsinline、preload none；使用者按播放才播放，切換時停止上一支。保留 noscript 與錯誤時的原始影片連結。
+桌面為影片右側的文字按鈕列，已選按鈕為淡紅底深紅字，`aria-pressed` 與隱藏面板同步。訊達 × HPE 為預設第一支，其次為 HPE 產品介紹和訊達電腦簡介。三支均使用 Release 原始 MP4、原生 controls、playsinline、preload none；使用者按播放才播放，切換時停止上一支。保留 noscript 與錯誤時的原始影片連結。
 
-影片採用既有 Release `website-video-2026-11-09` 中的 `hpe-dl380a-gen12.mp4`、`dimension-hpe-introduction.mp4`；封面為 `assets/plates/` 對應的原片未裁切畫面。既有訊達 SVG 與 HPE PNG 同樣位於 `assets/plates/`。來源與素材使用方式見 `docs/media-sources.md`；設計選定不構成對外素材授權。
+原有兩支影片採用 Release `website-video-2026-11-09` 中的 `hpe-dl380a-gen12.mp4`、`dimension-hpe-introduction.mp4`；封面為 `assets/plates/` 對應的原片未裁切畫面；新增影片採用 `website-video-2026-11-13` 的 `new-dimension-hpe.mp4` 與文字封面。既有訊達 SVG 與 HPE PNG 同樣位於 `assets/plates/`。來源與素材使用方式見 `docs/media-sources.md`；設計選定不構成對外素材授權。
 
 ### Service rows / panels
 
