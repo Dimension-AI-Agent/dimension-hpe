@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T02:50:49.040519+00:00",
+  "title": "Design System: 訊達 × HPE｜C 整合工作桌",
+  "extensions": {
+    "selectedDirection": {
+      "id": "c",
+      "status": "selected-and-implemented",
+      "selectedOn": "2026-11-12",
+      "scope": "root-site",
+      "designDocument": "DESIGN.md",
+      "sourceFiles": [
+        "site-c.css",
+        "site-c.js",
+        "c-base.css",
+        "refinements.css",
+        "index.html",
+        "app.js",
+        "case-list.js"
+      ],
+      "appliesTo": [
+        "/index.html",
+        "/solutions.html",
+        "/service-*.html",
+        "/cases.html",
+        "/insights.html",
+        "/article.html",
+        "/article-material-*.html",
+        "/ai-guide.html",
+        "/hpe-stage-[1-4].html",
+        "/xunda-stage-[1-4].html",
+        "/contact.html"
+      ],
+      "deployment": "GitHub Pages from main; deployment evidence is recorded in the release pull request.",
+      "archive": {
+        "includedInRelease": false,
+        "note": "A/B/C candidate prototypes remain in the local design workspace; root DESIGN.md records the selected C system."
+      }
+    },
+    "colorMeta": {
+      "red": {
+        "role": "primary",
+        "displayName": "red",
+        "canonical": "#a71320",
+        "tonalRamp": [
+          "oklch(15% 0.1786 24.63)",
+          "oklch(26% 0.1786 24.63)",
+          "oklch(38% 0.1786 24.63)",
+          "oklch(49% 0.1786 24.63)",
+          "oklch(61% 0.1786 24.63)",
+          "oklch(72% 0.1786 24.63)",
+          "oklch(84% 0.1786 24.63)",
+          "oklch(95% 0.1786 24.63)"
+        ]
+      },
+      "red-hover": {
+        "role": "primary",
+        "displayName": "red-hover",
+        "canonical": "#85101a",
+        "tonalRamp": [
+          "oklch(15% 0.1492 24.13)",
+          "oklch(26% 0.1492 24.13)",
+          "oklch(38% 0.1492 24.13)",
+          "oklch(49% 0.1492 24.13)",
+          "oklch(61% 0.1492 24.13)",
+          "oklch(72% 0.1492 24.13)",
+          "oklch(84% 0.1492 24.13)",
+          "oklch(95% 0.1492 24.13)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "link",
+        "canonical": "#92101c",
+        "tonalRamp": [
+          "oklch(15% 0.1612 24.28)",
+          "oklch(26% 0.1612 24.28)",
+          "oklch(38% 0.1612 24.28)",
+          "oklch(49% 0.1612 24.28)",
+          "oklch(61% 0.1612 24.28)",
+          "oklch(72% 0.1612 24.28)",
+          "oklch(84% 0.1612 24.28)",
+          "oklch(95% 0.1612 24.28)"
+        ]
+      },
+      "selected-text": {
+        "role": "primary",
+        "displayName": "selected-text",
+        "canonical": "#8c1823",
+        "tonalRamp": [
+          "oklch(15% 0.1499 22.43)",
+          "oklch(26% 0.1499 22.43)",
+          "oklch(38% 0.1499 22.43)",
+          "oklch(49% 0.1499 22.43)",
+          "oklch(61% 0.1499 22.43)",
+          "oklch(72% 0.1499 22.43)",
+          "oklch(84% 0.1499 22.43)",
+          "oklch(95% 0.1499 22.43)"
+        ]
+      },
+      "selected-surface": {
+        "role": "primary",
+        "displayName": "selected-surface",
+        "canonical": "#f5e9e9",
+        "tonalRamp": [
+          "oklch(15% 0.0130 17.39)",
+          "oklch(26% 0.0130 17.39)",
+          "oklch(38% 0.0130 17.39)",
+          "oklch(49% 0.0130 17.39)",
+          "oklch(61% 0.0130 17.39)",
+          "oklch(72% 0.0130 17.39)",
+          "oklch(84% 0.0130 17.39)",
+          "oklch(95% 0.0130 17.39)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "ink",
+        "canonical": "#262323",
+        "tonalRamp": [
+          "oklch(15% 0.0045 17.45)",
+          "oklch(26% 0.0045 17.45)",
+          "oklch(38% 0.0045 17.45)",
+          "oklch(49% 0.0045 17.45)",
+          "oklch(61% 0.0045 17.45)",
+          "oklch(72% 0.0045 17.45)",
+          "oklch(84% 0.0045 17.45)",
+          "oklch(95% 0.0045 17.45)"
+        ]
+      },
+      "body-ink": {
+        "role": "neutral",
+        "displayName": "body-ink",
+        "canonical": "#34302e",
+        "tonalRamp": [
+          "oklch(15% 0.0068 48.50)",
+          "oklch(26% 0.0068 48.50)",
+          "oklch(38% 0.0068 48.50)",
+          "oklch(49% 0.0068 48.50)",
+          "oklch(61% 0.0068 48.50)",
+          "oklch(72% 0.0068 48.50)",
+          "oklch(84% 0.0068 48.50)",
+          "oklch(95% 0.0068 48.50)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "muted",
+        "canonical": "#57514e",
+        "tonalRamp": [
+          "oklch(15% 0.0093 48.50)",
+          "oklch(26% 0.0093 48.50)",
+          "oklch(38% 0.0093 48.50)",
+          "oklch(49% 0.0093 48.50)",
+          "oklch(61% 0.0093 48.50)",
+          "oklch(72% 0.0093 48.50)",
+          "oklch(84% 0.0093 48.50)",
+          "oklch(95% 0.0093 48.50)"
+        ]
+      },
+      "meta": {
+        "role": "neutral",
+        "displayName": "meta",
+        "canonical": "#655b55",
+        "tonalRamp": [
+          "oklch(15% 0.0161 53.10)",
+          "oklch(26% 0.0161 53.10)",
+          "oklch(38% 0.0161 53.10)",
+          "oklch(49% 0.0161 53.10)",
+          "oklch(61% 0.0161 53.10)",
+          "oklch(72% 0.0161 53.10)",
+          "oklch(84% 0.0161 53.10)",
+          "oklch(95% 0.0161 53.10)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "line",
+        "canonical": "#d3ceca",
+        "tonalRamp": [
+          "oklch(15% 0.0078 61.44)",
+          "oklch(26% 0.0078 61.44)",
+          "oklch(38% 0.0078 61.44)",
+          "oklch(49% 0.0078 61.44)",
+          "oklch(61% 0.0078 61.44)",
+          "oklch(72% 0.0078 61.44)",
+          "oklch(84% 0.0078 61.44)",
+          "oklch(95% 0.0078 61.44)"
+        ]
+      },
+      "header-line": {
+        "role": "neutral",
+        "displayName": "header-line",
+        "canonical": "#e4dfda",
+        "tonalRamp": [
+          "oklch(15% 0.0087 67.72)",
+          "oklch(26% 0.0087 67.72)",
+          "oklch(38% 0.0087 67.72)",
+          "oklch(49% 0.0087 67.72)",
+          "oklch(61% 0.0087 67.72)",
+          "oklch(72% 0.0087 67.72)",
+          "oklch(84% 0.0087 67.72)",
+          "oklch(95% 0.0087 67.72)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "white",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "stone",
+        "canonical": "#f4f3f0",
+        "tonalRamp": [
+          "oklch(15% 0.0041 91.45)",
+          "oklch(26% 0.0041 91.45)",
+          "oklch(38% 0.0041 91.45)",
+          "oklch(49% 0.0041 91.45)",
+          "oklch(61% 0.0041 91.45)",
+          "oklch(72% 0.0041 91.45)",
+          "oklch(84% 0.0041 91.45)",
+          "oklch(95% 0.0041 91.45)"
+        ]
+      },
+      "row-hover": {
+        "role": "neutral",
+        "displayName": "row-hover",
+        "canonical": "#ebe6e2",
+        "tonalRamp": [
+          "oklch(15% 0.0077 61.45)",
+          "oklch(26% 0.0077 61.45)",
+          "oklch(38% 0.0077 61.45)",
+          "oklch(49% 0.0077 61.45)",
+          "oklch(61% 0.0077 61.45)",
+          "oklch(72% 0.0077 61.45)",
+          "oklch(84% 0.0077 61.45)",
+          "oklch(95% 0.0077 61.45)"
+        ]
+      },
+      "guide-hover": {
+        "role": "neutral",
+        "displayName": "guide-hover",
+        "canonical": "#f8f3f1",
+        "tonalRamp": [
+          "oklch(15% 0.0060 43.34)",
+          "oklch(26% 0.0060 43.34)",
+          "oklch(38% 0.0060 43.34)",
+          "oklch(49% 0.0060 43.34)",
+          "oklch(61% 0.0060 43.34)",
+          "oklch(72% 0.0060 43.34)",
+          "oklch(84% 0.0060 43.34)",
+          "oklch(95% 0.0060 43.34)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "focus",
+        "canonical": "#007647",
+        "tonalRamp": [
+          "oklch(15% 0.1178 157.39)",
+          "oklch(26% 0.1178 157.39)",
+          "oklch(38% 0.1178 157.39)",
+          "oklch(49% 0.1178 157.39)",
+          "oklch(61% 0.1178 157.39)",
+          "oklch(72% 0.1178 157.39)",
+          "oklch(84% 0.1178 157.39)",
+          "oklch(95% 0.1178 157.39)"
+        ]
+      },
+      "footer": {
+        "role": "neutral",
+        "displayName": "footer",
+        "canonical": "#282321",
+        "tonalRamp": [
+          "oklch(15% 0.0085 43.13)",
+          "oklch(26% 0.0085 43.13)",
+          "oklch(38% 0.0085 43.13)",
+          "oklch(49% 0.0085 43.13)",
+          "oklch(61% 0.0085 43.13)",
+          "oklch(72% 0.0085 43.13)",
+          "oklch(84% 0.0085 43.13)",
+          "oklch(95% 0.0085 43.13)"
+        ]
+      },
+      "footer-text": {
+        "role": "neutral",
+        "displayName": "footer-text",
+        "canonical": "#e8e3df",
+        "tonalRamp": [
+          "oklch(15% 0.0077 61.45)",
+          "oklch(26% 0.0077 61.45)",
+          "oklch(38% 0.0077 61.45)",
+          "oklch(49% 0.0077 61.45)",
+          "oklch(61% 0.0077 61.45)",
+          "oklch(72% 0.0077 61.45)",
+          "oklch(84% 0.0077 61.45)",
+          "oklch(95% 0.0077 61.45)"
+        ]
+      },
+      "legal-surface": {
+        "role": "neutral",
+        "displayName": "legal-surface",
+        "canonical": "#f3f1ee",
+        "tonalRamp": [
+          "oklch(15% 0.0045 78.30)",
+          "oklch(26% 0.0045 78.30)",
+          "oklch(38% 0.0045 78.30)",
+          "oklch(49% 0.0045 78.30)",
+          "oklch(61% 0.0045 78.30)",
+          "oklch(72% 0.0045 78.30)",
+          "oklch(84% 0.0045 78.30)",
+          "oklch(95% 0.0045 78.30)"
+        ]
+      },
+      "legal-text": {
+        "role": "neutral",
+        "displayName": "legal-text",
+        "canonical": "#514b47",
+        "tonalRamp": [
+          "oklch(15% 0.0104 56.09)",
+          "oklch(26% 0.0104 56.09)",
+          "oklch(38% 0.0104 56.09)",
+          "oklch(49% 0.0104 56.09)",
+          "oklch(61% 0.0104 56.09)",
+          "oklch(72% 0.0104 56.09)",
+          "oklch(84% 0.0104 56.09)",
+          "oklch(95% 0.0104 56.09)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "Shared page heading."
+      },
+      "article-title": {
+        "displayName": "article-title",
+        "purpose": "Long-form reading title."
+      },
+      "homepage-section": {
+        "displayName": "homepage-section",
+        "purpose": "Homepage service section heading."
+      },
+      "article-body": {
+        "displayName": "article-body",
+        "purpose": "Synced long-form body."
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "Shared text rhythm."
+      },
+      "navigation": {
+        "displayName": "navigation",
+        "purpose": "Desktop primary navigation."
+      },
+      "meta": {
+        "displayName": "meta",
+        "purpose": "Breadcrumb and supporting metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-menu",
+        "value": "0 12px 24px #0002",
+        "purpose": "Expanded narrow-screen navigation only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "service-row",
+        "value": "padding .25s cubic-bezier(.2,.7,.2,1), background-color .25s",
+        "purpose": "Small service-row indentation and stone fill response."
+      },
+      {
+        "name": "film-in",
+        "value": ".25s ease-out; brightness(.85) to brightness(1)",
+        "purpose": "Visible film panel entry when motion is allowed."
+      },
+      {
+        "name": "action-arrow",
+        "value": "transform .2s ease; translateX(5px)",
+        "purpose": "Homepage arrow feedback."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation:none!important; transition:none!important; scroll-behavior:auto!important",
+        "purpose": "Disable visual movement for prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1180px"
+      },
+      {
+        "name": "menu-and-rail",
+        "value": "1000px"
+      },
+      {
+        "name": "library-and-contact-stack",
+        "value": "800px"
+      },
+      {
+        "name": "mobile",
+        "value": "740px"
+      },
+      {
+        "name": "category-stack",
+        "value": "450px"
+      }
+    ],
+    "focus": {
+      "default": "3px solid #007647; outline-offset:4px",
+      "footer": "White focus outline.",
+      "skipLink": "Focusable skip link moves above the header."
+    },
+    "media": {
+      "aspectRatio": "16/9",
+      "objectFit": "contain",
+      "controls": "Native controls; playsinline; preload none; no autoplay.",
+      "switching": "aria-pressed plus hidden panel; pause inactive video.",
+      "order": [
+        "HPE product introduction (default)",
+        "Dimension × HPE introduction"
+      ],
+      "files": [
+        "https://github.com/Dimension-AI-Agent/dimension-hpe/releases/download/website-video-2026-11-09/hpe-dl380a-gen12.mp4",
+        "https://github.com/Dimension-AI-Agent/dimension-hpe/releases/download/website-video-2026-11-09/dimension-hpe-introduction.mp4"
+      ],
+      "posters": [
+        "assets/plates/hpe-dl380a-gen12-poster.jpg",
+        "assets/plates/dimension-hpe-introduction-poster.jpg"
+      ],
+      "marks": [
+        "assets/plates/dimension-wordmark-transparent.svg",
+        "assets/plates/hpe-logo.png"
+      ],
+      "provenance": "Existing Release films, uncropped source-frame posters and existing marks; source record: docs/media-sources.md. Design selection is not formal brand approval."
+    },
+    "articleOutline": {
+      "threshold": "At least two .article-body h2 elements.",
+      "source": "Existing synced article headings; no copy rewriting.",
+      "desktop": "Sticky left outline; details initially open above 1000px.",
+      "mobile": "Above body; details initially collapsed at 1000px and below.",
+      "shortArticle": "Hidden outline and single-column reading."
+    },
+    "tonalRampPolicy": "Generated OKLCH metadata swatches only; not additional normative CSS colors.",
+    "componentPreviewPolicy": "Standalone shadow-DOM snippets; state examples are visual and do not reproduce app data or script. Color var() fallbacks preserve root CSS values.",
+    "caseMedia": {
+      "source": "Approved public case attachments; videos take priority over images.",
+      "previews": "Eight uncropped original frames, 16/9 contain, sources in assets/case-previews/provenance.json.",
+      "activation": "Button creates native inline video only after click; starting another video pauses previous case videos.",
+      "failure": "Visible message with original video link and independent article link.",
+      "responsive": "Desktop 1.15fr / .85fr with 6% gap; single column at 740px. Native portrait playback max-height 460px desktop / 480px mobile."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Square red action used on inner pages.",
+      "html": "<a class=\"ds-primary\" href=\"#contact\">討論需求 →</a>",
+      "css": ".ds-primary{font-family:\"Noto Sans TC\",sans-serif;display:inline-flex;align-items:center;gap:20px;min-height:48px;padding:12px 18px;background:var(--red,#a71320);color:#fff;font-size:14px;font-weight:700;text-decoration:none;border-radius:0}.ds-primary:hover{background:#85101a;color:#fff}.ds-primary:focus-visible{outline:3px solid #007647;outline-offset:4px}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Outline action",
+      "kind": "button",
+      "description": "Secondary red outline action.",
+      "html": "<a class=\"ds-outline\" href=\"#library\">返回訊達文章 →</a>",
+      "css": ".ds-outline{font-family:\"Noto Sans TC\",sans-serif;display:inline-flex;align-items:center;gap:20px;min-height:48px;padding:12px 18px;border:1px solid #a71320;border-radius:0;background:transparent;color:#a71320;font-size:14px;font-weight:700;text-decoration:none}.ds-outline:hover{background:#85101a;color:#fff}.ds-outline:focus-visible{outline:3px solid #007647;outline-offset:4px}",
+      "refersTo": "button-outline"
+    },
+    {
+      "name": "Video choice",
+      "kind": "button",
+      "description": "Side selector; pressed state identifies the visible original film.",
+      "html": "<div class=\"ds-film\"><button aria-pressed=\"true\">HPE 產品介紹</button><button aria-pressed=\"false\">訊達 × HPE 簡介</button></div>",
+      "css": ".ds-film{display:grid;max-width:230px}.ds-film button{font-family:\"Noto Sans TC\",sans-serif;padding:14px 10px;min-height:48px;border:0;border-top:1px solid #d3ceca;background:transparent;color:#57514e;font-size:13px;font-weight:700;text-align:left;cursor:pointer}.ds-film button:last-child{border-bottom:1px solid #d3ceca}.ds-film button[aria-pressed=true]{background:#f5e9e9;color:#8c1823}.ds-film button:hover{background:#efe8e1}.ds-film button:focus-visible{outline:3px solid #007647;outline-offset:4px}",
+      "refersTo": "video-choice-selected"
+    },
+    {
+      "name": "Section rail",
+      "kind": "nav",
+      "description": "Homepage section wayfinding; live page updates aria-current while scrolling.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"頁面段落\"><a href=\"#films\" aria-current=\"location\">合作影片</a><a href=\"#services\">訊達服務</a><a href=\"#guide\">導入指南</a></nav>",
+      "css": ".ds-rail{font-family:\"Noto Sans TC\",sans-serif;display:flex;flex-direction:column;width:148px;background:#fff;padding:0 12px 0 24px}.ds-rail a{font-size:12px;min-height:52px;padding:15px 8px;color:#655b55;border-bottom:1px solid #d3ceca;text-decoration:none}.ds-rail a[aria-current=location]{color:#a71320;font-weight:900;border-bottom-color:#a71320}.ds-rail a:hover{color:#a71320}.ds-rail a:focus-visible{outline:3px solid #007647;outline-offset:4px}@media(max-width:1000px){.ds-rail{flex-direction:row;width:auto;gap:22px;padding:0 5%}.ds-rail a{min-height:46px;padding:12px 4px}}"
+    },
+    {
+      "name": "Library search",
+      "kind": "input",
+      "description": "Article search field and red submit control.",
+      "html": "<form class=\"ds-search\" action=\"#results\"><label for=\"ds-q\">搜尋文章</label><div><input id=\"ds-q\" type=\"search\" placeholder=\"輸入關鍵字\"><button type=\"submit\">搜尋</button></div></form>",
+      "css": ".ds-search{font-family:\"Noto Sans TC\",sans-serif;max-width:620px;color:#262323}.ds-search label{display:block;font-size:14px;margin-bottom:8px}.ds-search>div{display:flex;gap:10px}.ds-search input{min-width:0;flex:1;min-height:52px;border:1px solid #978b83;border-radius:0;padding:12px 15px;background:#fff;color:#262323;font:15px \"Noto Sans TC\",sans-serif}.ds-search button{border:1px solid #a71320;border-radius:0;padding:12px 18px;background:#a71320;color:#fff;font:700 14px \"Noto Sans TC\",sans-serif;cursor:pointer}.ds-search button:hover{background:#85101a}.ds-search :is(input,button):focus-visible{outline:3px solid #007647;outline-offset:4px}"
+    },
+    {
+      "name": "Article topic tag",
+      "kind": "chip",
+      "description": "Square clickable topic tag in article results.",
+      "html": "<button class=\"ds-topic\" type=\"button\">企業 AI</button>",
+      "css": ".ds-topic{font-family:\"Noto Sans TC\",sans-serif;font-size:12px;min-height:40px;padding:7px 11px;color:#65514c;border:1px solid #c5b6ac;border-radius:0;background:#fff;cursor:pointer}.ds-topic:hover{background:#f4ece7}.ds-topic:focus-visible{outline:3px solid #007647;outline-offset:4px}@media(max-width:740px){.ds-topic{min-height:44px}}"
+    },
+    {
+      "name": "Selected guide step",
+      "kind": "button",
+      "description": "Current adoption stage in the interactive guide.",
+      "html": "<button class=\"ds-step\" aria-selected=\"true\" role=\"tab\"><span>01</span><span><strong>找到應用場景</strong><small>我們可以從哪裡開始？</small></span></button>",
+      "css": ".ds-step{font-family:\"Noto Sans TC\",sans-serif;display:flex;gap:16px;align-items:start;width:275px;min-height:112px;border:0;border-bottom:1px solid #d3ceca;border-radius:0;padding:23px 20px;background:#a71320;color:#fff;text-align:left;cursor:pointer}.ds-step>span:first-child{font-size:12px;color:#f7e8e9}.ds-step strong{font-size:16px;display:block}.ds-step small{display:block;font-size:12px;line-height:1.7;color:#f7e8e9}.ds-step:hover{background:#92101c}.ds-step:focus-visible{outline:3px solid #007647;outline-offset:4px}",
+      "refersTo": "guide-step-selected"
+    },
+    {
+      "name": "Service register row",
+      "kind": "custom",
+      "description": "Entire linked row on the stone homepage service surface.",
+      "html": "<div class=\"ds-service-surface\"><a class=\"ds-service\" href=\"#service\"><h3>企業 AI 應用</h3><p>探索企業 AI 導入與系統應用。</p><span>查看服務與案例 →</span></a></div>",
+      "css": ".ds-service-surface{background:#f4f3f0;padding:0 20px}.ds-service{font-family:\"Noto Sans TC\",sans-serif;display:grid;grid-template-columns:1fr 1.2fr 170px;gap:20px;align-items:center;padding:25px 0;border-top:1px solid #d3ceca;border-bottom:1px solid #d3ceca;color:#262323;text-decoration:none;transition:padding .25s cubic-bezier(.2,.7,.2,1),background-color .25s}.ds-service h3{font-size:23px;line-height:1.5;letter-spacing:-.02em;margin:0}.ds-service p{font-size:13px;color:#57514e;margin:0}.ds-service span{font-size:12px;font-weight:700;color:#a71320}.ds-service:hover{padding-left:10px;padding-right:10px;background:#ebe6e2}.ds-service:focus-visible{outline:3px solid #007647;outline-offset:4px}@media(max-width:740px){.ds-service{grid-template-columns:1fr;gap:8px;padding:22px 0}.ds-service h3{font-size:25px}}@media(prefers-reduced-motion:reduce){.ds-service{transition:none}}",
+      "refersTo": "service-row"
+    },
+    {
+      "name": "Article outline",
+      "kind": "nav",
+      "description": "Conditional semantic table of contents derived from existing h2 headings.",
+      "html": "<aside class=\"ds-outline-nav\"><details open><summary>文章目錄</summary><nav aria-label=\"文章目錄\"><a href=\"#section-1\">從應用場景開始</a><a href=\"#section-2\">評估資料與環境</a></nav></details></aside>",
+      "css": ".ds-outline-nav{font-family:\"Noto Sans TC\",sans-serif;max-width:190px;border-top:2px solid #a71320;padding-top:14px;color:#262323}.ds-outline-nav summary{min-height:36px;font-size:14px;font-weight:700;cursor:pointer}.ds-outline-nav nav{display:grid;margin-top:12px}.ds-outline-nav a{font-size:12px;line-height:1.8;min-height:44px;padding:12px 0;border-bottom:1px solid #d3ceca;color:#655b55;text-decoration:none}.ds-outline-nav a:hover{color:#92101c}.ds-outline-nav :is(summary,a):focus-visible{outline:3px solid #007647;outline-offset:4px}"
+    },
+    {
+      "name": "Case video preview",
+      "kind": "custom",
+      "description": "案例原片封面及明確的點擊播放入口；播放器於點擊後載入。",
+      "html": "<button class=\"ds-case-video\" type=\"button\"><span class=\"ds-case-label\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m9 5 11 7-11 7Z\"/></svg>播放案例影片</span></button>",
+      "css": ".ds-case-video{position:relative;display:block;width:100%;aspect-ratio:16/9;background:#0d1320;color:#fff;border:0;border-radius:0;cursor:pointer;font-family:\"Noto Sans TC\",sans-serif}.ds-case-label{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 14px;background:#a71320;font-size:13px;font-weight:700;transition:background .2s}.ds-case-label svg{width:18px;height:18px;fill:currentColor}.ds-case-video:hover .ds-case-label{background:#85101a}.ds-case-video:focus-visible{outline:3px solid #007647;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-case-label{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "整合工作桌 / Enterprise Decision Brief",
+    "overview": "使用者於 2026-11-12 選定 C。白色與石灰表面、粗重中文標題、訊達紅色動作及對齊的細線，將影片、服務、案例和導入階段組織成可閱讀、可操作的企業決策工作桌。資訊密度依任務調整：首頁快速導覽、文章專注閱讀、指南清楚操作，沿用同一組色彩與排版語言。\n\n訊達為主導品牌；HPE 使用既有獨立合作識別。內容承載在連續表面上，以文字層次與分隔線建立秩序。這份文件記錄目前採用的 C 系統；根目錄首頁與內頁為實作依據。A／B 原型及本機測試工具不屬於正式發布內容。",
+    "keyCharacteristics": [
+      "白色畫布、石灰功能區與訊達紅色重點。",
+      "段落導覽、清楚列式服務和有條件顯示的文章目錄。",
+      "直角、細線與平實表面，原始影片優先。",
+      "同一套識別依閱讀或操作需求重排。"
+    ],
+    "rules": [
+      {
+        "name": "The Red Wayfinding Rule",
+        "body": "紅色指出動作或所在位置；一般正文維持墨色與灰色。",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** 沿用白色／石灰畫布、訊達紅與列式對齊，依閱讀或操作任務安排頁面。",
+      "**Do** 保持影片先於首頁服務，保留原始比例、明確選擇與手動播放。",
+      "**Do** 使用既有獨立品牌標誌，保留產品來源、匿名案例邊界與完整 HPE 產品資訊聲明。",
+      "**Do** 在桌面與手機確認段落導覽、文章目錄、選取狀態及鍵盤焦點。"
+    ],
+    "donts": [
+      "**Don't** 把封存的 A／B 候選、比較控制或舊首頁分色背板重新帶入目前根目錄頁面。",
+      "**Don't** 因設計改版新增服務成果、案例授權或 HPE 已核准的宣稱。",
+      "**Don't** 為了統一外觀移除文章內容、來源連結、資料同步或指南操作行為。",
+      "**Don't** 將本機完成或設計選定描述為已正式部署。"
+    ]
+  }
+}

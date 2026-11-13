@@ -71,13 +71,21 @@ function setupLibrary() {
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === filter && (filter === 'all' || button.dataset.value === value))));
     const selected = cards.find(c => (filter === 'track' && c.dataset.track === value) || (filter === 'topic' && c.dataset.topic === value));
     const group = selected && [...document.querySelectorAll('.category-group')].find(g => g.dataset.group === selected.dataset.track); if (group) group.open = true;
-    if (sync) { const next = new URLSearchParams(); if (filter !== 'all') next.set(filter,value); if (search.value.trim()) next.set('q',search.value.trim()); history.replaceState(null,'',location.pathname+(next.size?'?'+next:'')+location.hash); }
+    if (sync) { const next = new URLSearchParams(); if (filter !== 'all') next.set(filter,value); if (search.value.trim()) next.set('q',search.value.trim()); const url=location.pathname+(next.size?'?'+next:'')+location.hash; if(url!==location.pathname+location.search+location.hash) history[sync==='push'?'pushState':'replaceState'](null,'',url); }
   }
-  buttons.forEach(button => button.addEventListener('click', () => {filter=button.dataset.filter; value=button.dataset.value||''; search.value=''; render();}));
-  library.addEventListener('click', e => { const link=e.target.closest('[data-tag], [data-topic-link], [data-track-link]'); if (!link) return; e.preventDefault(); filter=link.dataset.tag?'tag':link.dataset.topicLink?'topic':'track'; value=link.dataset.tag||link.dataset.topicLink||link.dataset.trackLink; search.value=''; render(); document.querySelector('#articles').scrollIntoView({block:'start'}); });
+  buttons.forEach(button => button.addEventListener('click', () => {filter=button.dataset.filter; value=button.dataset.value||''; render('push');}));
+  library.addEventListener('click', e => { const link=e.target.closest('[data-tag], [data-topic-link], [data-track-link]'); if (!link) return; e.preventDefault(); filter=link.dataset.tag?'tag':link.dataset.topicLink?'topic':'track'; value=link.dataset.tag||link.dataset.topicLink||link.dataset.trackLink; render('push'); document.querySelector('#articles').scrollIntoView({block:'start'}); });
   search.addEventListener('input',()=>render());
   document.querySelector('#article-search-form').addEventListener('submit',e=>{e.preventDefault();render();});
-  document.querySelector('#clear-empty').addEventListener('click',()=>{filter='all';value='';search.value='';render();});
+  document.querySelector('#clear-empty').addEventListener('click',()=>{filter='all';value='';search.value='';render('push');});
   window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);filter=p.get('tag')?'tag':p.get('topic')?'topic':p.get('track')?'track':'all';value=p.get(filter)||'';search.value=p.get('q')||'';render(false);});
   render(false);
 }
+
+function closeMenu(returnFocus=false){if(!menu||!navigation)return;menu.setAttribute('aria-expanded','false');navigation.classList.remove('open');if(returnFocus)menu.focus();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true')closeMenu(true)});
+document.addEventListener('click',e=>{if(menu&&navigation&&!menu.contains(e.target)&&!navigation.contains(e.target))closeMenu()});
+navigation?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});
+document.querySelectorAll('.video-panel video').forEach(video=>{
+ const failed=()=>{const hint=document.querySelector('.video-help');if(hint){hint.textContent='影片暫時無法載入，請重試或使用下方連結開啟原始影片。';const a=document.createElement('a');a.href=video.querySelector('source').src;a.textContent='開啟原始影片';hint.append(' ',a)}};video.addEventListener('error',failed);video.querySelector('source')?.addEventListener('error',failed);
+});

@@ -6,6 +6,16 @@
 
 網站由 GitHub Pages 發布，來源為本儲存庫的 `main` 分支。首頁兩支原始影片保留於本儲存庫的 Release 附件，避免 GitHub 單檔大小限制。
 
+## 2026-11-13 C 版全站設計與案例影片
+
+已套用確認的 C「整合工作桌」：影片優先首頁、統一的全站介面、案例右側影片封面與點擊播放，以及文章閱讀、搜尋狀態與指南操作改善。
+
+- [成功案例與影片](https://dimension-ai-agent.github.io/dimension-hpe/cases.html)
+- [完整修改紀錄](docs/changes/2026-11-13-c-design-and-case-media.md)
+- [設計規則](DESIGN.md)／[媒體來源](docs/media-sources.md)
+
+本機預覽：在儲存庫根目錄執行 `python3 -m http.server 8877 --bind 127.0.0.1`，再開啟 `http://127.0.0.1:8877/`。無須建置；字體、公開文章與影片來源需連網。
+
 ## 2026-11-09 內容更新
 
 - 移除合作方案入口，重新整理應用情境及案例。

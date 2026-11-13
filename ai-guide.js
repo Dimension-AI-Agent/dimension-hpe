@@ -45,7 +45,10 @@ const stages = [
  }
 ];
 const tabs=[...document.querySelectorAll('[role="tab"]')];
-function selectStage(index){
+let currentStage=0;
+function selectStage(index,sync=true){
+ currentStage=index;
+ if(sync){const u=new URL(location.href);u.searchParams.set("stage",String(index+1));if(u.href!==location.href)history.pushState(null,"",u);}
  const s=stages[index]; tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1});
  const panel=document.querySelector('#stage-content');panel.setAttribute('aria-labelledby',`tab-${index}`);
  document.querySelector('#detail-no').textContent=`0${index+1} / ${s.label}`; document.querySelector('#detail-title').textContent=s.title;document.querySelector('#detail-summary').textContent=s.summary;
@@ -53,5 +56,10 @@ function selectStage(index){
  document.querySelector('#example-title').textContent=s.exampleTitle;document.querySelector('#example-text').textContent=s.example;document.querySelector('#next-step').textContent=s.next;
  document.querySelector('#questions').replaceChildren(...s.questions.map(q=>{const li=document.createElement('li');li.textContent=q;return li}));document.querySelector('#hpe-role').textContent=s.hpe;document.querySelector('#hpe-more').href=`hpe-stage-${index+1}.html`;document.querySelector('#partner-role').textContent=s.partner;document.querySelector('#xunda-more').href=`xunda-stage-${index+1}.html`;
  document.querySelector('#articles').replaceChildren(...s.articles.map(([title,id])=>{const a=document.createElement('a');a.href=`article.html?id=material-${id}`;const text=document.createElement('span');text.textContent=title;text.style.color='inherit';text.style.whiteSpace='normal';const arrow=document.createElement('span');arrow.textContent='閱讀文章 ↗';a.append(text,arrow);return a}));
+ const prev=document.querySelector('#stage-prev'),next=document.querySelector('#stage-next');prev.disabled=index===0;next.disabled=index===3;
 }
-tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectStage(index));tab.addEventListener('keydown',e=>{if(!['ArrowDown','ArrowUp','ArrowRight','ArrowLeft'].includes(e.key))return;e.preventDefault();const next=(index+(['ArrowRight','ArrowDown'].includes(e.key)?1:-1)+tabs.length)%tabs.length;selectStage(next);tabs[next].focus()})});const selectedStage=Number(new URLSearchParams(location.search).get("stage"));selectStage(selectedStage>=1&&selectedStage<=4?selectedStage-1:0);
+tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectStage(index));tab.addEventListener('keydown',e=>{if(!['ArrowDown','ArrowUp','ArrowRight','ArrowLeft'].includes(e.key))return;e.preventDefault();const next=(index+(['ArrowRight','ArrowDown'].includes(e.key)?1:-1)+tabs.length)%tabs.length;selectStage(next);tabs[next].focus()})});const selectedStage=Number(new URLSearchParams(location.search).get("stage"));selectStage(selectedStage>=1&&selectedStage<=4?selectedStage-1:0,false);
+
+window.addEventListener('popstate',()=>{const n=Number(new URLSearchParams(location.search).get('stage'));selectStage(n>=1&&n<=4?n-1:0,false)});
+function moveStage(offset){selectStage(Math.max(0,Math.min(3,currentStage+offset)));tabs[currentStage].focus();document.querySelector('.workspace').scrollIntoView({block:'start',behavior:'instant'});}
+document.querySelector('#stage-prev').addEventListener('click',()=>moveStage(-1));document.querySelector('#stage-next').addEventListener('click',()=>moveStage(1));
