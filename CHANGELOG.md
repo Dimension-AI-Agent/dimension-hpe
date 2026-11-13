@@ -10,7 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
-| 2026-11-13 | [HPE 與訊達階段頁閱讀層級](#release-20261113-partner-type) | 調整八個角色說明頁的字體層級與閱讀寬度 | 本次更新 |
+| 2026-11-13 | [HPE 與訊達階段頁閱讀層級](#release-20261113-partner-type) | 調整八個角色說明頁的字體層級與閱讀寬度 | [PR #9](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/9) |
 | 2026-11-13 | [首頁新增訊達 × HPE 影片](#release-20261113-partnership-video) | 新增影片、文字封面並調整首頁影片排序與名稱 | [影片 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-13) |
 | 2026-11-13 | [連結、聯絡識別與文章影片](#release-20261113-ui) | 全站移除箭頭、聯絡列只留 Logo、影片固定尺寸 | [PR #7](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/7) |
 | 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | [PR #6](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/6) |
