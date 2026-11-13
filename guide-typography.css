@@ -1,0 +1,37 @@
+/* AI 導入指南：閱讀層級與內容寬度。 */
+.site-c .section-heading h2 { font-size: 28px; line-height: 1.4; }
+.site-c .section-heading p { font-size: 16px; line-height: 1.7; }
+.site-c .step-text strong { font-size: 17px; line-height: 1.5; }
+.site-c .step-text small { font-size: 13px; }
+.site-c .detail h2 { font-size: clamp(28px, 2.8vw, 34px); line-height: 1.4; }
+.site-c .detail > p { font-size: 17px; line-height: 1.85; }
+.site-c .detail > p, .site-c .guide-content section { max-width: 48rem; }
+.site-c .guide-content section { padding: 23px 0; }
+.site-c .guide-content p { max-width: none; }
+.site-c .guide-content h3 { font-size: 21px; line-height: 1.5; margin-bottom: 10px; }
+.site-c .guide-content p, .site-c .example p, .site-c .next-step p,
+.site-c .question-block ul, .site-c .role-grid p { font-size: 16px; line-height: 1.85; }
+.site-c .example h3 { font-size: 20px; line-height: 1.5; }
+.site-c .example > span { font-size: 13px; }
+.site-c .question-block h3, .site-c .next-step strong, .site-c .reading h3 { font-size: 20px; line-height: 1.5; }
+.site-c .question-block h3, .site-c .reading h3 { margin-bottom: 14px; }
+.site-c .question-block li + li { margin-top: 5px; }
+.site-c .role-grid { margin: 34px 0; }
+.site-c .role-grid > div > span { font-size: 19px; line-height: 1.5; }
+.site-c .role-grid p { margin-top: 10px; }
+.site-c .role-grid .hpe-more, .site-c .role-grid .xunda-more { font-size: 15px; }
+.site-c .reading { padding-top: 26px; }
+.site-c .reading a { font-size: 16px; line-height: 1.6; padding: 12px 0; }
+.site-c .reading a span:last-child { font-size: 14px; flex-shrink: 0; }
+@media (max-width: 740px) {
+  .site-c .section-heading h2 { font-size: 25px; }
+  .site-c .step-text strong { font-size: 14px; }
+  .site-c .detail h2 { font-size: 27px; }
+  .site-c .detail > p { font-size: 16px; }
+  .site-c .guide-content h3, .site-c .example h3,
+  .site-c .question-block h3, .site-c .next-step strong,
+  .site-c .reading h3, .site-c .role-grid > div > span { font-size: 19px; }
+  .site-c .guide-content p, .site-c .example p, .site-c .next-step p,
+  .site-c .question-block ul, .site-c .role-grid p { font-size: 16px; }
+  .site-c .reading a { font-size: 16px; }
+}

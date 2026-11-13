@@ -10,6 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
+| 2026-11-13 | [AI 導入指南閱讀層級](#release-20261113-guide) | 統一角色標題、調整字體層級與閱讀寬度 | 本次更新 |
 | 2026-11-13 | [C 版全站設計與案例影片](#release-20261113-c) | 影片優先首頁、統一介面、8 支案例影片及操作改善 | [PR #4](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/4) |
 | 2026-11-11 | [AI 導入指南](#release-20261111-guide) | 四階段指南、HPE 與訊達各四個說明頁 | [PR #3](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/3) |
 | 2026-11-11 | [服務與案例架構調整](#release-20261111-services) | 三項服務說明、集中案例、公開內容同步 | [PR #2](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/2) |
@@ -18,6 +19,14 @@
 | 2026-11-09 | [應用情境與文章庫](#release-20261109-content) | 移除合作方案入口、整理案例、站內閱讀 | [9417559](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/941755902ec17189453340ea0cdebee5699fcb1e) |
 | 2026-11-09 | [網站發布與網址更新](#release-20261109-publish) | 發布驗收網站、更新網址與專案介紹 | [6294b8e](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/6294b8e) |
 | 2026-11-04 | [初版預覽與行動版](#release-20261104-preview) | 建立初版、改善手機導覽、加入首頁方案與文章入口 | [8670b8c](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/8670b8c) |
+
+<a id="release-20261113-guide"></a>
+
+## 2026-11-13｜AI 導入指南閱讀層級
+
+- 統一四階段的「HPE 在這階段扮演的角色」與「訊達在這階段扮演的角色」，並將文章區標題改為「參考文章」。
+- 放大階段內容小標、待確認事項、角色標題與正文，區分標題、內容及輔助連結的閱讀層級。
+- 適度放寬正文區並對齊分隔線，改善寬畫面右側留白；保留手機版單欄與原有階段切換、文章及角色連結。
 
 <a id="release-20261113-c"></a>
 
