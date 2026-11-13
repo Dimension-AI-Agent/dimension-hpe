@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T02:50:49.040519+00:00",
+  "generatedAt": "2026-11-13T06:47:53.214438+00:00",
   "title": "Design System: 訊達 × HPE｜C 整合工作桌",
   "extensions": {
     "selectedDirection": {
@@ -388,11 +388,6 @@
         "purpose": "Visible film panel entry when motion is allowed."
       },
       {
-        "name": "action-arrow",
-        "value": "transform .2s ease; translateX(5px)",
-        "purpose": "Homepage arrow feedback."
-      },
-      {
         "name": "reduced-motion",
         "value": "animation:none!important; transition:none!important; scroll-behavior:auto!important",
         "purpose": "Disable visual movement for prefers-reduced-motion: reduce."
@@ -463,14 +458,25 @@
       "activation": "Button creates native inline video only after click; starting another video pauses previous case videos.",
       "failure": "Visible message with original video link and independent article link.",
       "responsive": "Desktop 1.15fr / .85fr with 6% gap; single column at 740px. Native portrait playback max-height 460px desktop / 480px mobile."
-    }
+    },
+    "articleMedia": {
+      "frame": "Full article width, fixed 16/9 wrapper before metadata; absolute video with object-fit contain.",
+      "mediaLinks": "No redundant image/video filename links; document downloads remain. Video source fallback appears only on playback error.",
+      "poster": "Reuse original case video frames when available.",
+      "verification": "Desktop and mobile playback preserve frame dimensions and following content position."
+    },
+    "contactIdentity": {
+      "placement": "Original logos only in website rows; accessible image labels; no duplicate company captions or domains.",
+      "hpe": "One page mark, moved from header into HPE row on contact page."
+    },
+    "actionIcons": "Decorative navigation and link arrows removed sitewide; native media controls retained."
   },
   "components": [
     {
       "name": "Primary action",
       "kind": "button",
       "description": "Square red action used on inner pages.",
-      "html": "<a class=\"ds-primary\" href=\"#contact\">討論需求 →</a>",
+      "html": "<a class=\"ds-primary\" href=\"#contact\">討論需求 </a>",
       "css": ".ds-primary{font-family:\"Noto Sans TC\",sans-serif;display:inline-flex;align-items:center;gap:20px;min-height:48px;padding:12px 18px;background:var(--red,#a71320);color:#fff;font-size:14px;font-weight:700;text-decoration:none;border-radius:0}.ds-primary:hover{background:#85101a;color:#fff}.ds-primary:focus-visible{outline:3px solid #007647;outline-offset:4px}",
       "refersTo": "button-primary"
     },
@@ -478,7 +484,7 @@
       "name": "Outline action",
       "kind": "button",
       "description": "Secondary red outline action.",
-      "html": "<a class=\"ds-outline\" href=\"#library\">返回訊達文章 →</a>",
+      "html": "<a class=\"ds-outline\" href=\"#library\">返回訊達文章 </a>",
       "css": ".ds-outline{font-family:\"Noto Sans TC\",sans-serif;display:inline-flex;align-items:center;gap:20px;min-height:48px;padding:12px 18px;border:1px solid #a71320;border-radius:0;background:transparent;color:#a71320;font-size:14px;font-weight:700;text-decoration:none}.ds-outline:hover{background:#85101a;color:#fff}.ds-outline:focus-visible{outline:3px solid #007647;outline-offset:4px}",
       "refersTo": "button-outline"
     },
@@ -523,7 +529,7 @@
       "name": "Service register row",
       "kind": "custom",
       "description": "Entire linked row on the stone homepage service surface.",
-      "html": "<div class=\"ds-service-surface\"><a class=\"ds-service\" href=\"#service\"><h3>企業 AI 應用</h3><p>探索企業 AI 導入與系統應用。</p><span>查看服務與案例 →</span></a></div>",
+      "html": "<div class=\"ds-service-surface\"><a class=\"ds-service\" href=\"#service\"><h3>企業 AI 應用</h3><p>探索企業 AI 導入與系統應用。</p><span>查看服務與案例 </span></a></div>",
       "css": ".ds-service-surface{background:#f4f3f0;padding:0 20px}.ds-service{font-family:\"Noto Sans TC\",sans-serif;display:grid;grid-template-columns:1fr 1.2fr 170px;gap:20px;align-items:center;padding:25px 0;border-top:1px solid #d3ceca;border-bottom:1px solid #d3ceca;color:#262323;text-decoration:none;transition:padding .25s cubic-bezier(.2,.7,.2,1),background-color .25s}.ds-service h3{font-size:23px;line-height:1.5;letter-spacing:-.02em;margin:0}.ds-service p{font-size:13px;color:#57514e;margin:0}.ds-service span{font-size:12px;font-weight:700;color:#a71320}.ds-service:hover{padding-left:10px;padding-right:10px;background:#ebe6e2}.ds-service:focus-visible{outline:3px solid #007647;outline-offset:4px}@media(max-width:740px){.ds-service{grid-template-columns:1fr;gap:8px;padding:22px 0}.ds-service h3{font-size:25px}}@media(prefers-reduced-motion:reduce){.ds-service{transition:none}}",
       "refersTo": "service-row"
     },

@@ -37,10 +37,17 @@ async function loadArticle() {
     const attachments = files.map(file => {
       const url = assetUrl(file.file); if (!url) return '';
       const src=escapeText(url), name=escapeText(file.name || '附件');
-      const media=file.kind==='image'?`<img src="${src}" alt="${name}" loading="lazy">`:file.kind==='video'?`<video controls preload="none" src="${src}"></video>`:file.kind==='audio'?`<audio controls preload="none" src="${src}"></audio>`:'';
-      return `<p>${media}<br><a href="${src}" target="_blank" rel="noopener noreferrer">開啟附件：${name} ↗</a></p>`;
-    }).join('') + links.map(link=>{const url=publicUrl(link);return url?`<p><a href="${escapeText(url)}" target="_blank" rel="noopener noreferrer">開啟素材連結 ↗</a></p>`:'';}).join('');
+      if (file.kind === 'image') return `<figure class="article-media"><img src="${src}" alt="${escapeText(item.title)}相關圖片" loading="lazy" decoding="async"></figure>`;
+      if (file.kind === 'video') {
+        const hasPoster = ['material-53','material-60','material-61','material-62','material-63','material-64','material-65','material-66'].includes(item.id);
+        const poster = hasPoster ? ` poster="assets/case-previews/${item.id}.jpg"` : '';
+        return `<figure class="article-media"><div class="article-video-frame"><video controls playsinline preload="none" tabindex="0" aria-label="文章影片：${escapeText(item.title)}"${poster} src="${src}"></video></div><p class="article-media-error" hidden>影片暫時無法播放，請重新整理，或<a href="${src}" target="_blank" rel="noopener noreferrer">另開影片</a>。</p></figure>`;
+      }
+      const media=file.kind==='audio'?`<audio controls preload="none" src="${src}"></audio>`:'';
+      return `<p>${media}<br><a href="${src}" target="_blank" rel="noopener noreferrer">開啟附件：${name} </a></p>`;
+    }).join('') + links.map(link=>{const url=publicUrl(link);return url?`<p><a href="${escapeText(url)}" target="_blank" rel="noopener noreferrer">開啟素材連結 </a></p>`:'';}).join('');
     document.title=`${item.title}｜訊達文章`;
     articleRoot.innerHTML=`<p class="article-category"><a href="insights.html?track=${encodeURIComponent(topic.trackId)}#articles">${escapeText(topic.trackTitle)}</a> / <a href="insights.html?topic=${encodeURIComponent(item.topicId || '')}#articles">${escapeText(topic.title)}</a></p><h1>${escapeText(item.title)}</h1><p class="reading-lede">${escapeText(item.summary || '')}</p><nav class="reading-tags article-tags" aria-label="文章標籤">${tags.map(tag=>`<a class="topic-tag" href="insights.html?tag=${encodeURIComponent(tag)}#articles">${escapeText(tag)}</a>`).join('')}</nav><div class="article-body">${articleBody(item.body)}${attachments ? `<h2>相關圖片與附件</h2>${attachments}`:''}</div>`;
+    articleRoot.querySelectorAll('.article-video-frame video').forEach(video => video.addEventListener('error', () => { video.closest('.article-media').querySelector('.article-media-error').hidden = false; }));
   } catch { articleRoot.innerHTML='<h1>文章暫時無法載入</h1><p>請重新整理後再試。</p>'; }
 }
