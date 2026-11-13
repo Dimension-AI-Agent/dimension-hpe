@@ -1,0 +1,29 @@
+/* HPE 與訊達階段頁：閱讀層級 */
+.site-c .hpe-hero .hpe-lead { font-size: 17px; line-height: 1.85; max-width: 45em; }
+.site-c .hpe-hero aside span { font-size: 14px; }
+.site-c .hpe-hero aside strong { font-size: 21px; }
+.site-c .hpe-hero aside p { font-size: 15px; }
+.site-c .hpe-stages a { font-size: 15px; line-height: 1.5; }
+.site-c .hpe-stages span { font-size: 13px; }
+.site-c .hpe-body-title > span, .site-c .hpe-partner > div > span,
+.site-c .xunda-hpe span { font-size: 14px; }
+.site-c .hpe-body-title h2, .site-c .deep-guide > h2 { font-size: clamp(25px, 2.4vw, 30px); }
+.site-c .hpe-body-title p, .site-c .deep-intro, .site-c .deep-row p,
+.site-c .decision-guide p, .site-c .takeaway p, .site-c .hpe-partner p,
+.site-c .xunda-hpe p, .site-c .xunda-next p { font-size: 16px; line-height: 1.85; }
+.site-c .hpe-body-title, .site-c .deep-intro { max-width: 48rem; }
+.site-c .deep-row h3, .site-c .decision-guide h3 { font-size: 21px; line-height: 1.5; }
+.site-c .deep-row strong { font-size: 16px; line-height: 1.5; }
+.site-c .deep-row strong + p { margin-top: 8px; }
+.site-c .takeaway strong { font-size: 19px; line-height: 1.5; }
+.site-c .hpe-partner a, .site-c .xunda-hpe a, .site-c .hpe-back { font-size: 15px; }
+.site-c .hpe-sources h2 { font-size: 21px; }
+.site-c .hpe-sources p, .site-c .hpe-sources a { font-size: 15px; line-height: 1.8; }
+@media(max-width:740px) {
+  .site-c .hpe-hero .hpe-lead, .site-c .hpe-body-title p, .site-c .deep-intro,
+  .site-c .deep-row p, .site-c .decision-guide p, .site-c .takeaway p,
+  .site-c .hpe-partner p, .site-c .xunda-hpe p, .site-c .xunda-next p { font-size: 16px; }
+  .site-c .hpe-stages a { font-size: 14px; }
+  .site-c .hpe-body-title h2, .site-c .deep-guide > h2 { font-size: 24px; }
+  .site-c .deep-row h3, .site-c .decision-guide h3 { font-size: 19px; }
+}
