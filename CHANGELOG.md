@@ -10,6 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
+| 2026-11-17 | [訊達 Solution 方案內容](#release-20261117-solution-content) | 三項主力方案、需求探索及相關案例 | 本次提交 |
 | 2026-11-17 | [服務頁客戶協作流程](#release-20261117-service-journey) | 三項服務改以四階段說明客戶協作及階段目標 | [PR #11](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/11) |
 | 2026-11-17 | [訊達 Solution 分頁](#release-20261117-solution) | 新增獨立導覽入口與空白分頁，等待內容確認 | 本次提交 |
 | 2026-11-13 | [HPE 與訊達階段頁閱讀層級](#release-20261113-partner-type) | 調整八個角色說明頁的字體層級與閱讀寬度 | [PR #9](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/9) |
@@ -24,6 +25,14 @@
 | 2026-11-09 | [應用情境與文章庫](#release-20261109-content) | 移除合作方案入口、整理案例、站內閱讀 | [9417559](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/941755902ec17189453340ea0cdebee5699fcb1e) |
 | 2026-11-09 | [網站發布與網址更新](#release-20261109-publish) | 發布驗收網站、更新網址與專案介紹 | [6294b8e](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/6294b8e) |
 | 2026-11-04 | [初版預覽與行動版](#release-20261104-preview) | 建立初版、改善手機導覽、加入首頁方案與文章入口 | [8670b8c](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/8670b8c) |
+
+<a id="release-20261117-solution-content"></a>
+
+## 2026-11-17｜訊達 Solution 方案內容
+
+- 在既有「訊達 Solution」頁介紹 Private Cloud AI、SimpliVity 與 Morpheus VM Essentials，從企業需求說明方案用途及規劃條件。
+- 加入 AI、硬體設備與儲存、系統管理與備份三條需求探索路線，說明適用情境、規劃方向、預期效益、產品選擇和需求討論入口。
+- 連結相關公開成功案例與 HPE 公開產品資料；案例不代表所有應用均使用同一套產品或配置。
 
 <a id="release-20261117-service-journey"></a>
 
