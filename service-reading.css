@@ -1,0 +1,28 @@
+/* 三項服務頁：閱讀層級 */
+.site-c .page-intro > div > p:last-of-type { font-size: 17px; line-height: 1.85; max-width: 48rem; }
+.site-c .page-intro aside span { font-size: 13px; }
+.site-c .page-intro aside strong { font-size: 20px; line-height: 1.5; }
+.site-c .service-intro { max-width: 48rem; padding-bottom: 34px; }
+.site-c .service-intro h2 { font-size: clamp(26px, 2.4vw, 30px); line-height: 1.4; }
+.site-c .service-intro p, .site-c .scenario p { font-size: 17px; line-height: 1.85; max-width: 48rem; }
+.site-c .service-intro ~ .scenario { padding: 32px 0; }
+.site-c .service-intro ~ .scenario h2 { font-size: 24px; line-height: 1.45; margin-bottom: 12px; }
+.site-c .notice { font-size: 15px; line-height: 1.8; max-width: 48rem; }
+.site-c .service-page-heading h2 { font-size: 30px; line-height: 1.4; }
+.site-c .service-page-heading p { font-size: 16px; line-height: 1.8; }
+.site-c .service-page-heading .service-all-cases { font-size: 15px; }
+.site-c .page-wrap .article-list article { padding: 28px 0; }
+.site-c .page-wrap .article-list article h3 { font-size: 22px; line-height: 1.5; }
+.site-c .page-wrap .article-list article p { font-size: 16px; line-height: 1.85; max-width: 48rem; }
+.site-c .page-wrap .article-list article a { font-size: 15px; }
+.site-c .service-conversation h2 { font-size: 27px; line-height: 1.4; }
+.site-c .service-conversation p { font-size: 16px; line-height: 1.8; }
+@media (max-width: 740px) {
+  .site-c .page-intro > div > p:last-of-type, .site-c .service-intro p,
+  .site-c .scenario p, .site-c .page-wrap .article-list article p,
+  .site-c .service-conversation p { font-size: 16px; }
+  .site-c .service-intro h2, .site-c .service-page-heading h2 { font-size: 25px; }
+  .site-c .service-intro ~ .scenario { padding: 25px 0; }
+  .site-c .service-intro ~ .scenario h2, .site-c .service-conversation h2 { font-size: 22px; }
+  .site-c .page-wrap .article-list article h3 { font-size: 20px; }
+}

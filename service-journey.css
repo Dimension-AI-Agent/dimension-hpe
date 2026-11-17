@@ -1,0 +1,33 @@
+/* 三項服務頁：客戶協作流程 */
+.site-c .page-intro { grid-template-columns: minmax(0, 1fr); }
+.site-c .page-intro > div { max-width: 64rem; }
+.site-c .page-intro > div > p:last-of-type { max-width: 58rem; }
+.site-c .customer-journey { padding: 12px 0 50px; }
+.site-c .journey-heading { display:grid; grid-template-columns:minmax(0,1fr); align-items:end; padding:0 0 30px; border-bottom:1px solid #d3ceca; }
+.site-c .journey-heading h2 { margin:0 0 12px; font-size:clamp(28px,3vw,36px); line-height:1.35; }
+.site-c .journey-heading p { margin:0; color:#57514e; font-size:17px; line-height:1.8; max-width:42rem; }
+.site-c .journey-heading .journey-context { font-size:15px; line-height:1.8; border-top:2px solid #a71320; padding-top:14px; }
+.site-c .journey-flow { margin:0; padding:0; list-style:none; }
+.site-c .journey-step { position:relative; display:grid; grid-template-columns:74px minmax(0,1fr); gap:26px; padding:31px 0; }
+.site-c .journey-step:not(:last-child)::after { content:""; position:absolute; top:78px; bottom:-2px; left:25px; width:2px; background:#d3ceca; }
+.site-c .journey-number { position:relative; z-index:1; display:grid; place-items:center; width:52px; height:52px; background:#a71320; color:white; font-weight:800; font-size:17px; }
+.site-c .journey-copy { display:grid; grid-template-columns:minmax(0,1fr) minmax(210px,.48fr); column-gap:9%; align-items:start; padding:0 0 28px; border-bottom:1px solid #d3ceca; }
+.site-c .journey-copy h3 { grid-column:1; margin:0 0 9px; font-size:24px; line-height:1.45; }
+.site-c .journey-copy > p { grid-column:1; margin:0; color:#57514e; font-size:17px; line-height:1.85; }
+.site-c .journey-together { grid-column:2; grid-row:1 / span 2; padding:4px 0 4px 18px; border-left:1px solid #c8b8b1; }
+.site-c .journey-together strong { display:block; color:#92101c; font-size:14px; margin-bottom:6px; }
+.site-c .journey-together span { display:block; color:#34302e; font-size:16px; line-height:1.7; }
+.site-c .customer-journey + .service-page-heading { margin-top:0; }
+@media(max-width:740px){
+ .site-c .customer-journey { padding:4px 0 36px; }
+ .site-c .journey-heading { grid-template-columns:1fr; gap:20px; }
+ .site-c .journey-heading h2 { font-size:27px; }
+ .site-c .journey-heading p { font-size:16px; }
+ .site-c .journey-step { grid-template-columns:42px minmax(0,1fr); gap:16px; padding:25px 0; }
+ .site-c .journey-step:not(:last-child)::after { top:66px; left:20px; }
+ .site-c .journey-number { width:42px; height:42px; font-size:15px; }
+ .site-c .journey-copy { grid-template-columns:1fr; gap:0; padding-bottom:24px; }
+ .site-c .journey-copy h3 { font-size:21px; }
+ .site-c .journey-copy > p { font-size:16px; }
+ .site-c .journey-together { grid-column:1; grid-row:auto; margin-top:16px; padding-left:12px; }
+}
