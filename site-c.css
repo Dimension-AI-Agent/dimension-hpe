@@ -79,3 +79,12 @@
     gap: 10px;
   }
 }
+
+/* VME playback speed and the four-video selector. */
+.site-c #video-vme label{display:inline-block;margin-top:12px;font-size:13px;color:#57514e}
+.site-c #vme-speed{margin-left:8px;min-height:44px;padding:6px 12px;border:1px solid #a99b91;background:#fff;color:#262323;font:inherit}
+@media(max-width:740px){
+  .concept-c .video-switcher{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .concept-c .video-choice{border-bottom:0;white-space:normal}
+  .concept-c .video-choice:nth-last-child(-n+2){border-bottom:1px solid #d3ceca}
+}
