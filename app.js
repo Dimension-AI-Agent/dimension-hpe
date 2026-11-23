@@ -89,3 +89,16 @@ navigation?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});
 document.querySelectorAll('.video-panel video').forEach(video=>{
  const failed=()=>{const hint=document.querySelector('.video-help');if(hint){hint.textContent='影片暫時無法載入，請重試或使用下方連結開啟原始影片。';const a=document.createElement('a');a.href=video.querySelector('source').src;a.textContent='開啟原始影片';hint.append(' ',a)}};video.addEventListener('error',failed);video.querySelector('source')?.addEventListener('error',failed);
 });
+
+const vmePlayer = document.querySelector('#vme-player');
+const vmeSpeed = document.querySelector('#vme-speed');
+if (vmePlayer && vmeSpeed) {
+  vmePlayer.defaultPlaybackRate = 1.25;
+  vmePlayer.playbackRate = 1.25;
+  vmeSpeed.addEventListener('change', () => {
+    vmePlayer.playbackRate = Number(vmeSpeed.value);
+  });
+  vmePlayer.addEventListener('ratechange', () => {
+    vmeSpeed.value = String(vmePlayer.playbackRate);
+  });
+}
