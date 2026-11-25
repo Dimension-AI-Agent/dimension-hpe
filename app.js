@@ -37,12 +37,16 @@ async function initLibrary() {
     }).join('');
     const otherCount = items.filter(item => !topics.has(item.topicId)).length;
     categories.innerHTML = all + groups + (otherCount ? `<button type="button" data-filter="track" data-value="__other" data-label="其他"><span>其他</span><span>${otherCount}</span></button>` : '');
-    library.innerHTML = items.map(item => {
+    const oldest = Number.MIN_SAFE_INTEGER;
+    const newestFirst = [...items].sort((a, b) =>
+      (articleUpdateTimestamp(b) ?? oldest) - (articleUpdateTimestamp(a) ?? oldest)
+    );
+    library.innerHTML = newestFirst.map(item => {
       const topic = topics.get(item.topicId) || {trackId:'__other', trackTitle:'其他', title:'其他'};
       const tags = Array.isArray(item.tags) ? item.tags.filter(t => typeof t === 'string') : [];
       const searchable = [item.title, item.summary, item.body, topic.title, topic.trackTitle, ...tags].join(' ').toLocaleLowerCase();
       const href = articleHref(item.id);
-      return `<article id="${escapeText(item.id)}" data-track="${escapeText(topic.trackId)}" data-topic="${escapeText(item.topicId || '')}" data-tags="${escapeText(JSON.stringify(tags))}" data-search="${escapeText(searchable)}"><div class="article-category"><a href="insights.html?track=${encodeURIComponent(topic.trackId)}#articles" data-track-link="${escapeText(topic.trackId)}">${escapeText(topic.trackTitle)}</a><span aria-hidden="true"> / </span><a href="insights.html?topic=${encodeURIComponent(item.topicId || '')}#articles" data-topic-link="${escapeText(item.topicId || '')}">${escapeText(topic.title)}</a></div><h3><a class="article-title-link" href="${href}">${escapeText(item.title)}</a></h3><p class="article-summary">${escapeText(item.summary || '')}</p><a class="read-link" href="${href}">閱讀文章 </a><div class="article-tags" aria-label="文章標籤">${tags.map(tag => `<a class="topic-tag" href="insights.html?tag=${encodeURIComponent(tag)}#articles" data-tag="${escapeText(tag)}">${escapeText(tag)}</a>`).join('')}</div></article>`;
+      return `<article id="${escapeText(item.id)}" data-track="${escapeText(topic.trackId)}" data-topic="${escapeText(item.topicId || '')}" data-tags="${escapeText(JSON.stringify(tags))}" data-search="${escapeText(searchable)}"><div class="article-category"><a href="insights.html?track=${encodeURIComponent(topic.trackId)}#articles" data-track-link="${escapeText(topic.trackId)}">${escapeText(topic.trackTitle)}</a><span aria-hidden="true"> / </span><a href="insights.html?topic=${encodeURIComponent(item.topicId || '')}#articles" data-topic-link="${escapeText(item.topicId || '')}">${escapeText(topic.title)}</a></div><h3><a class="article-title-link" href="${href}">${escapeText(item.title)}</a></h3>${renderArticleUpdate(item)}<p class="article-summary">${escapeText(item.summary || '')}</p><a class="read-link" href="${href}">閱讀文章 </a><div class="article-tags" aria-label="文章標籤">${tags.map(tag => `<a class="topic-tag" href="insights.html?tag=${encodeURIComponent(tag)}#articles" data-tag="${escapeText(tag)}">${escapeText(tag)}</a>`).join('')}</div></article>`;
     }).join('');
     loading.hidden = true;
     setupLibrary();
