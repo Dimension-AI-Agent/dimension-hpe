@@ -88,3 +88,22 @@
   .concept-c .video-choice{border-bottom:0;white-space:normal}
   .concept-c .video-choice:nth-last-child(-n+2){border-bottom:1px solid #d3ceca}
 }
+
+/* Update dates on article lists and reading pages. */
+.site-c .article-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  color: #655b55;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.site-c .article-date--list { margin: 4px 0 10px; font-size: 13px; }
+.site-c .reading-article h1:has(+ .article-date) { margin-bottom: 12px; }
+.site-c .article-date--detail { margin: 0 0 22px; }
+.article-date time { font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 740px) {
+  .site-c .article-date { column-gap: 5px; font-size: 13px; }
+  .site-c .article-date--detail { margin-bottom: 18px; }
+}

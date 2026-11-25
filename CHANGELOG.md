@@ -10,6 +10,7 @@
 
 | 日期 | 更新里程碑 | 主要改變 | GitHub 紀錄 |
 | --- | --- | --- | --- |
+| 2026-11-25 | [文章更新時間與排序](#release-20261125-article-dates) | 文章標題下方顯示日期，文章列表由新到舊排列 | 本次提交 |
 | 2026-11-17 | [訊達 Solution 方案內容](#release-20261117-solution-content) | 三項主力方案、需求探索及相關案例 | 本次提交 |
 | 2026-11-17 | [服務頁客戶協作流程](#release-20261117-service-journey) | 三項服務改以四階段說明客戶協作及階段目標 | [PR #11](https://github.com/Dimension-AI-Agent/dimension-hpe/pull/11) |
 | 2026-11-17 | [訊達 Solution 分頁](#release-20261117-solution) | 新增獨立導覽入口與空白分頁，等待內容確認 | 本次提交 |
@@ -25,6 +26,14 @@
 | 2026-11-09 | [應用情境與文章庫](#release-20261109-content) | 移除合作方案入口、整理案例、站內閱讀 | [9417559](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/941755902ec17189453340ea0cdebee5699fcb1e) |
 | 2026-11-09 | [網站發布與網址更新](#release-20261109-publish) | 發布驗收網站、更新網址與專案介紹 | [6294b8e](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/6294b8e) |
 | 2026-11-04 | [初版預覽與行動版](#release-20261104-preview) | 建立初版、改善手機導覽、加入首頁方案與文章入口 | [8670b8c](https://github.com/Dimension-AI-Agent/dimension-hpe/commit/8670b8c) |
+
+<a id="release-20261125-article-dates"></a>
+
+## 2026-11-25｜文章更新時間與排序
+
+- 「訊達文章」列表與文章內頁於標題下方顯示「更新時間」，格式為 `YYYY/MM/DD`。
+- 當時的 42 篇文章採用核准的 2026/11/01 至 2026/11/26 編排日期，新文章沿用公開來源的更新時間。日期按台灣時間顯示。
+- 文章列表依日期由新到舊排列。同日文章依原先編排的時分排序。
 
 <a id="release-20261117-solution-content"></a>
 
