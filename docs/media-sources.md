@@ -7,3 +7,5 @@
 原片與封面保持完整比例；播放器不自動播放。素材新增、下架與公開內容由原有核准流程管理。本站沿用既有訊達與 HPE 獨立標誌及產品資訊聲明；設計發布不構成新增的 HPE 品牌核准或第三方素材授權。
 
 2026-11-23 新增的 HPE VME 介紹影片由使用者提供，儲存於 [網站影片 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-23)。
+
+2026-11-27 首頁 HPE DL380a Gen12 影片更新為使用者提供的版本，儲存於 [網站影片 Release](https://github.com/Dimension-AI-Agent/dimension-hpe/releases/tag/website-video-2026-11-27)。
